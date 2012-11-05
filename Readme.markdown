@@ -18,9 +18,12 @@ Code Coverage, Live stats from servers, Incoming bugs etc.
 # Get started #
 
 Put everything in a directory served by a web server. You can also run
-`node server.js` which will start a server on port 8888. Find below a list of instruments which can be used to visualize ctitical information.
+`node server.js` which will start a server on port 8888. Find below a list of instruments which can be used to visualize ctitical
+information.
 
-What `you` need to do is to create a `teamwall.json` file and put it into the root directory of teamwall. This file contains the description of the instruments to be shown (and how they are updated). Every 15 seconds the values are updated. It is totally up to you where to get the data from, Teamwall simply reads the urls and displays it's json data.
+What `you` need to do is to create a `teamwall.json` file and put it into the root directory of teamwall. This file contains
+the description of the instruments to be shown (and how they are updated). Every 15 seconds the values are updated.
+It is totally up to you where and when to get the data from, Teamwall simply reads the urls and displays it's json data.
 
 You need a browser with a working HTML 5 canvas to use this.
 
@@ -44,7 +47,7 @@ Create a `data/codecoverage.json` file (data directory needs to be created) with
 
 	{"value":"81.8", "trend":"1"}
 
-Hurray! You got your first Teamwall Dashboard.
+Hurray! You got your first Teamwall Dashboard. Now go and change the value and switch back to the browser.
 
 
 ## Instruments ##
