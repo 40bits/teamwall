@@ -109,8 +109,8 @@ Example:
 
 #### Examples ####
 
-![Green](documentation/images/percent_green.png "Green Percent")
-![Red](documentation/images/percent_red.png "Red Percent")
+![Green](/documentation/images/percent_green.png "Green Percent")
+![Red](/documentation/images/percent_red.png "Red Percent")
 
 
 ### Buildchain Instrument ###
@@ -153,7 +153,7 @@ Example:
 
 #### Example ####
 
-![Red](documentation/images/buildchain.png "Build Chain")
+![Red](/documentation/images/buildchain.png "Build Chain")
 
 
 ### Number Instrument ###
@@ -207,8 +207,8 @@ Example:
 
 	{"value":"9", "trend":"0"}
 	
-![RedNumber](documentation/images/number_red.png "Red Number")
-![GreenNumber](documentation/images/number_green.png "Green Chain")
+![RedNumber](/documentation/images/number_red.png "Red Number")
+![GreenNumber](/documentation/images/number_green.png "Green Chain")
 	
 # TODO #
 
