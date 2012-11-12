@@ -69,7 +69,7 @@ All data from the data urls need to be in json format.
 **Instrument name :** percent
 
 | Attribute | Definition |
-|------------------------|
+|-----------|------------|
 | title	|Title of the instrument |
 | threshold_value | If the value from the data url is below the threshold the display will be rendered as failure |
 
@@ -89,7 +89,7 @@ Example:
 #### Data Format ####
 
 | Attribute | Definition |
-|------------------------|
+|-----------|------------|
 | value | The value to be displayed |
 | trend | The trend of the value (not yet implemented)|
 
@@ -97,7 +97,7 @@ Example:
 Where trend is defined as this:
 
 |Trend Value | Definition |
-|-------------------------|
+|------------|------------|
 | 1 | Bigger value than previous |
 | 0 | Same value as previous |
 | -1 | Smaller value than previous |
@@ -134,7 +134,7 @@ Example:
 The format consists of a list of build steps.
 
 | Attribute | Definition |
-|------------------------|
+|-----------|------------|
 | name | Name of the build step |
 | status | FAILURE or SUCCESS |
 
@@ -162,7 +162,7 @@ Example:
 
 
 | Attribute | Definition |
-|------------------------|
+|-----------|------------|
 | title	|Title of the instrument |
 | threshold_value | If the value from the data url is below the threshold the display will be rendered as failure |
 | decimal_places | How many decimal places should be rendered|
@@ -189,7 +189,7 @@ Example:
 #### Data Format ####
 
 | Attribute | Definition |
-|------------------------|
+|-----------|------------|
 | value | The value to be displayed |
 | trend | The trend of the value |
 
@@ -197,7 +197,7 @@ Example:
 Where trend is defined as this:
 
 |Trend Value | Definition |
-|-------------------------|
+|------------|------------|
 | 1 | Bigger value than previous |
 | 0 | Same value as previous |
 | -1 | Smaller value than previous |
