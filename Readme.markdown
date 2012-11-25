@@ -159,6 +159,8 @@ Example:
 
 **Instrument name :** buildalert
 
+This instrument is used to monitor multiple build chains. If one team has more than one product (and therefore chain) it
+can take up a lot of screen estate. If you have the need for multiple chains, this instrument is for you.
 
 Example:
 
