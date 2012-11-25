@@ -216,8 +216,8 @@ Example:
 
 #### Example ####
 
-![Red](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/buildalert_red.png "Build Alert Red")
-![Red](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/buildalert_green.png "Build Alert Green")
+![Red](https://raw.github.com/40bits/teamwall/master/documentation/images/buildalert_red.png "Build Alert Red")
+![Green](https://raw.github.com/40bits/teamwall/master/documentation/images/buildalert_green.png "Build Alert Green")
 
 
 
