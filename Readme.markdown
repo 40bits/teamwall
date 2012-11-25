@@ -207,7 +207,7 @@ Example:
       "chain":
               [
                 { "name":"Mega Tests", "status":"SUCCESS" },
-                { "name":"prod tests", "status":"SUCCESS" },
+                { "name":"prod tests", "status":"FAILURE" },
                 { "name":"live tests", "status":"SUCCESS" }
               ]
     }
