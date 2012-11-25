@@ -5,6 +5,7 @@ var teamwall = {
   date:{},
   instrument:{
     buildChain:{},
+    buildAlert:{},
     number:{},
     percent:{}
   }

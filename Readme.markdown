@@ -155,6 +155,71 @@ Example:
 
 ![Red](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/buildchain.png "Build Chain")
 
+### Build Alert Instrument ###
+
+**Instrument name :** buildalert
+
+
+Example:
+
+	{
+        "instrument":"buildalert",
+        "width":"300",
+        "height":"300",
+        "id":"buildalert",
+        "url":"data/buildalert.json"
+    }
+
+
+#### Data Format ####
+
+A list of build chains can be defined.
+
+| Attribute | Definition |
+|-----------|------------|
+| name | Name of the build chain |
+| chain | Definition of the chain |
+
+| Attribute | Definition |
+|-----------|------------|
+| name | Name of the build step |
+| status | FAILURE or SUCCESS |
+
+There can be as many buid steps as needed.
+
+Example:
+
+	[
+    {
+      "name":"Build1",
+      "chain":
+              [
+                { "name":"unit tests", "status":"SUCCESS" },
+                { "name":"deploy preview", "status":"SUCCESS" },
+                { "name":"selenium preview", "status":"FAILURE" },
+                { "name":"documentation", "status":"SUCCESS" },
+                { "name":"deploy integration", "status":"SUCCESS" },
+                { "name":"smoke integration", "status":"SUCCESS" }
+              ]
+    },
+    {
+      "name":"Build2",
+      "chain":
+              [
+                { "name":"Mega Tests", "status":"SUCCESS" },
+                { "name":"prod tests", "status":"SUCCESS" },
+                { "name":"live tests", "status":"SUCCESS" }
+              ]
+    }
+  ]
+
+
+#### Example ####
+
+![Red](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/buildalert_red.png "Build Alert Red")
+![Red](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/buildalert_green.png "Build Alert Green")
+
+
 
 ### Number Instrument ###
 

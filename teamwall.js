@@ -29,6 +29,9 @@ function TeamwallApp() {
                    case "number" :
                      instrument = teamwall.instrument.number(instrumentData);
                      break;
+                   case "buildalert" :
+                     instrument = teamwall.instrument.buildAlert(instrumentData);
+                     break;
                    default:
                      break;
                  }
