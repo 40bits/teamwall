@@ -109,8 +109,8 @@ Example:
 
 #### Examples ####
 
-![Green](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/percent_green.png "Green Percent")
-![Red](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/percent_red.png "Red Percent")
+![Green](https://raw.github.com/40bits/teamwall/master/documentation/images/percent_green.png "Green Percent")
+![Red](https://raw.github.com/40bits/teamwall/master/documentation/images/percent_red.png "Red Percent")
 
 
 ### Buildchain Instrument ###
@@ -153,7 +153,7 @@ Example:
 
 #### Example ####
 
-![Red](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/buildchain.png "Build Chain")
+![Red](https://raw.github.com/40bits/teamwall/master/documentation/images/buildchain.png "Build Chain")
 
 ### Build Alert Instrument ###
 
@@ -272,8 +272,8 @@ Example:
 
 	{"value":"9", "trend":"0"}
 	
-![RedNumber](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/number_red.png "Red Number")
-![GreenNumber](https://raw.github.com/40bits/Teamwall-UI/master/documentation/images/number_green.png "Green Chain")
+![RedNumber](https://raw.github.com/40bits/teamwall/master/documentation/images/number_red.png "Red Number")
+![GreenNumber](https://raw.github.com/40bits/teamwall/master/documentation/images/number_green.png "Green Chain")
 	
 # TODO #
 
