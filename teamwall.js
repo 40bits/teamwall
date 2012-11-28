@@ -6,6 +6,7 @@ function TeamwallApp() {
 
     $.ajax({
              url:"teamwall.json",
+             dataType:'json',
              cache:false,
              success:function (data) {
                jQuery.each(data, function () {
@@ -51,6 +52,7 @@ function TeamwallApp() {
       var instrument = this;
       $.ajax({
                url:instrument.getConfiguration().url,
+               dataType:'json',
                cache:false,
                success:function (data) {
                  instrument.setValue(data);
