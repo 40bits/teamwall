@@ -25,6 +25,13 @@ What `you` need to do is to create a `teamwall.json` file and put it into the ro
 the description of the instruments to be shown (and how they are updated). Every 15 seconds the values are updated.
 It is totally up to you where and when to get the data from, Teamwall simply reads the urls and displays it's json data.
 
+If you want to serve multiple dashboard from one host you can add the parameter `dashboard` to the url, e.g.
+
+	http://localhost:8080/?dashboard=mydashboard.json
+
+This will show the definitions from the mydashboard.json file. If no file is specified the standard teamwall.json file will be
+loaded.
+
 You need a browser with a working HTML 5 canvas to use this.
 
 ## Example ##
