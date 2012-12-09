@@ -5,6 +5,7 @@
     <link href='fonts/stylesheet.css' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="teamwall.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-url-parser/purl.js"></script>
     <script type="text/javascript" src="js/tw.namespace.js"></script>
     <script type="text/javascript" src="js/tw.config.js"></script>
     <script type="text/javascript" src="js/tw.render.js"></script>
@@ -17,7 +18,11 @@
     <script type="text/javascript">
         $(function () {
             var teamwallApp = new TeamwallApp();
-            teamwallApp.loadDashboard();
+            var dashboardFile = $.url().param('dashboard');
+            if (!dashboardFile) {
+                dashboardFile = "teamwall.json";
+            }
+            teamwallApp.loadDashboard(dashboardFile);
         });
     </script>
 </head>

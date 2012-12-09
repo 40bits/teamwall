@@ -2,10 +2,10 @@ function TeamwallApp() {
 
   var instruments = [];
 
-  this.loadDashboard = function () {
+  this.loadDashboard = function (dashboardFile) {
 
     $.ajax({
-             url:"teamwall.json",
+             url:dashboardFile,
              dataType:'json',
              cache:false,
              success:function (data) {
@@ -41,7 +41,7 @@ function TeamwallApp() {
              },
              statusCode:{
                404:function () {
-                 alert("Please add a teamwall.json file to the installation.");
+                 alert("Please add a "+dashboardFile+" file to the installation.");
                }}
            });
     window.setInterval(updateInstruments, 1000);
