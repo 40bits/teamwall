@@ -19,7 +19,7 @@ teamwall.instrument.percent = function (configuration) {
 
         this.setValue = function (data) {
             var targetValue = teamwall.math.round(data.value, 1);
-            drawInstrument(targetValue, data.trend);
+            drawInstrument(targetValue, data.threshold_value, data.trend);
             currentValue = targetValue;
         };
 
@@ -27,7 +27,7 @@ teamwall.instrument.percent = function (configuration) {
             return instrumentConfiguration;
         };
 
-        function drawInstrument(value, trend) {
+        function drawInstrument(value, threshold, trend) {
             var canvas = document.getElementById(instrumentConfiguration.id);
             var context = canvas.getContext("2d");
             var centerX = canvas.width / 2;
@@ -42,6 +42,9 @@ teamwall.instrument.percent = function (configuration) {
             context.clearRect(0, 0, canvas.width, canvas.height);
             context.fillStyle = teamwall.configuration.background;
             context.fillRect(0, 0, canvas.width, canvas.height);
+
+            if (threshold)
+                instrumentConfiguration.threshold_value = threshold;
 
             var valueColor = teamwall.configuration.colorOk;
             if (value < instrumentConfiguration.threshold_value) {
