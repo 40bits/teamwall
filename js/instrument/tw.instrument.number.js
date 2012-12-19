@@ -26,14 +26,14 @@ teamwall.instrument.number = function (configuration) {
             if (data.decimal_places && data.decimal_places > 0) {
                 value = teamwall.math.round(data.value, 1);
             }
-            drawInstrument(value, data.trend, data.date);
+            drawInstrument(value, data.threshold_value, data.trend, data.date);
         };
 
         this.getConfiguration = function () {
             return instrumentConfiguration;
         };
 
-        function drawInstrument(value, trend, date) {
+        function drawInstrument(value, threshold, trend, date) {
             var canvas = document.getElementById(instrumentConfiguration.id);
             var context = canvas.getContext("2d");
             var centerX = canvas.width / 2;
@@ -44,7 +44,7 @@ teamwall.instrument.number = function (configuration) {
             context.fillRect(0, 0, canvas.width, canvas.height);
 
             teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
-            showThreshold(value, context, centerX, canvas);
+            showThreshold(value, threshold, context, centerX, canvas);
             teamwall.render.writeText(context, value, centerX, centerY, getFontWithRightSize(canvas, context, value), teamwall.configuration.colorText);
             showTrend(trend, context, canvas);
             if (helpLines) {
@@ -57,7 +57,9 @@ teamwall.instrument.number = function (configuration) {
 
         }
 
-        function showThreshold(value, context, centerX, canvas) {
+        function showThreshold(value, threshold, context, centerX, canvas) {
+            if (threshold)
+                instrumentConfiguration.threshold_value = threshold;
             if (instrumentConfiguration.threshold_value != undefined) {
                 var thresholdColor = teamwall.configuration.colorOk;
                 var thresholdToActualDifference = teamwall.math.round(value - instrumentConfiguration.threshold_value, 1);
