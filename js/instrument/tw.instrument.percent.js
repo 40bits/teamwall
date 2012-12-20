@@ -43,8 +43,9 @@ teamwall.instrument.percent = function (configuration) {
             context.fillStyle = teamwall.configuration.background;
             context.fillRect(0, 0, canvas.width, canvas.height);
 
-            if (threshold)
+            if (threshold) {
                 instrumentConfiguration.threshold_value = threshold;
+            }
 
             var valueColor = teamwall.configuration.colorOk;
             if (value < instrumentConfiguration.threshold_value) {
@@ -71,7 +72,6 @@ teamwall.instrument.percent = function (configuration) {
             //  A---C
             //
             //   X,Y
-
 
         }
 

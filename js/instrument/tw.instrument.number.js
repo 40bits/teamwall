@@ -58,8 +58,9 @@ teamwall.instrument.number = function (configuration) {
         }
 
         function showThreshold(value, threshold, context, centerX, canvas) {
-            if (threshold)
+            if (threshold) {
                 instrumentConfiguration.threshold_value = threshold;
+            }
             if (instrumentConfiguration.threshold_value != undefined) {
                 var thresholdColor = teamwall.configuration.colorOk;
                 var thresholdToActualDifference = teamwall.math.round(value - instrumentConfiguration.threshold_value, 1);
@@ -138,7 +139,6 @@ teamwall.instrument.number = function (configuration) {
 
         }
 
-
         function drawTrendSame(context, canvas, color) {
 
             var circleY = canvas.height / 2;
@@ -164,7 +164,8 @@ teamwall.instrument.number = function (configuration) {
             var distanceToCenter = (canvas.height / 40);
             if (upArrow) {
                 pointAC_YLine = pointAC_YLine - distanceToCenter;
-            } else {
+            }
+            else {
                 pointAC_YLine = pointAC_YLine + distanceToCenter;
             }
 

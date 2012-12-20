@@ -99,6 +99,7 @@ Example:
 |-----------|------------|
 | value | The value to be displayed |
 | trend | The trend of the value (not yet implemented)|
+| threshold_value | The new threshold value (optional) |
 
 
 Where trend is defined as this:
@@ -111,7 +112,7 @@ Where trend is defined as this:
 
 Example:
 
-	{"value":"82.2", "trend":"1"}
+	{"value":"82.2", "trend":"1", "threshold_value":"90"}
 
 
 #### Examples ####
@@ -266,6 +267,7 @@ Example:
 |-----------|------------|
 | value | The value to be displayed |
 | trend | The trend of the value |
+| threshold_value | The new threshold value (optional) |
 
 
 Where trend is defined as this:
@@ -279,7 +281,7 @@ Where trend is defined as this:
 
 Example:
 
-	{"value":"9", "trend":"0"}
+	{"value":"9", "trend":"0", "threshold_value":"11"}
 	
 ![RedNumber](https://raw.github.com/40bits/teamwall/master/documentation/images/number_red.png "Red Number")
 ![GreenNumber](https://raw.github.com/40bits/teamwall/master/documentation/images/number_green.png "Green Chain")
