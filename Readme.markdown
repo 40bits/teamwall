@@ -1,6 +1,6 @@
 # Teamwall
 
-__The developers dashboard.__
+__The developer's dashboard.__
 
 This is the early stages Teamwall project.
 
