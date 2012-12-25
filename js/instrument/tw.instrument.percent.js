@@ -47,23 +47,40 @@ teamwall.instrument.percent = function (configuration) {
                 instrumentConfiguration.threshold_value = threshold;
             }
 
-            var valueColor = teamwall.configuration.colorOk;
-            if (value < instrumentConfiguration.threshold_value) {
-                valueColor = teamwall.configuration.colorFailure;
-            }
-
             var degree360 = 2 * Math.PI;
             var oneDegree = degree360 / 360;
             var zeroPercentAngle = degree360 - 90 * oneDegree;
             var valueEndAngle = (degree360 / 100 * value) - 90 * oneDegree;
-            drawArc(context, centerX, centerY, radius, 0, degree360, teamwall.configuration.colorBackground, lineWidth);
-            drawArc(context, centerX, centerY, radius, zeroPercentAngle, valueEndAngle, valueColor, lineWidth * 0.8);
+            var valueColor = defineValueColor(value);
 
+            drawArcClockwise(context, centerX, centerY, radius, 0, degree360, teamwall.configuration.colorBackground, lineWidth);
+            drawArcClockwise(context, centerX, centerY, radius, zeroPercentAngle, valueEndAngle, valueColor, lineWidth * 0.8);
+            if (!instrumentConfiguration.higher_is_better) {
+                drawArcCounterClockwise(context, centerX, centerY, radius, zeroPercentAngle-0.04, valueEndAngle+0.04, teamwall.configuration.colorOk, lineWidth * 0.8);
+            }
             drawThresholdMarker(lineWidth, centerX, centerY, radius, context, value);
 
             teamwall.render.writeText(context, value, centerX, centerY, teamwall.render.font(canvas, 13), teamwall.configuration.colorText);
             teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
             drawTrend(context, canvas, centerX, centerY, trend);
+        }
+
+        function defineValueColor(value) {
+            var valueColor = teamwall.configuration.colorOk;
+            if (instrumentConfiguration.higher_is_better) {
+                if (value < instrumentConfiguration.threshold_value) {
+                    valueColor = teamwall.configuration.colorFailure;
+                }
+            }
+            else {
+                if (value > instrumentConfiguration.threshold_value) {
+                    valueColor = teamwall.configuration.colorFailure;
+                }
+                else {
+                    valueColor = teamwall.configuration.colorWarning;
+                }
+            }
+            return valueColor;
         }
 
         function drawTrend(context, canvas, centerX, centerY, trend) {
@@ -76,10 +93,7 @@ teamwall.instrument.percent = function (configuration) {
         }
 
         function drawThresholdMarker(lineWidth, centerX, centerY, radius, context, value) {
-            var valueColor = teamwall.configuration.colorFailure;
-            if (instrumentConfiguration.threshold_value < value) {
-                valueColor = teamwall.configuration.colorOk;
-            }
+            var valueColor = defineValueColor(value);
             var degree360 = 2 * Math.PI;
             var oneDegree = degree360 / 360;
             var thresholdAngle = (degree360 / 100 * instrumentConfiguration.threshold_value) - 90 * oneDegree;
@@ -97,8 +111,15 @@ teamwall.instrument.percent = function (configuration) {
             context.closePath();
         }
 
-        function drawArc(context, x, y, radius, startAngle, endAngle, color, lineWidth) {
-            var counterClockwise = false;
+        function drawArcClockwise(context, x, y, radius, startAngle, endAngle, color, lineWidth) {
+            drawArc(context, x, y, radius, startAngle, endAngle, color, lineWidth, false)
+        }
+
+        function drawArcCounterClockwise(context, x, y, radius, startAngle, endAngle, color, lineWidth) {
+            drawArc(context, x, y, radius, startAngle, endAngle, color, lineWidth, true)
+        }
+
+        function drawArc(context, x, y, radius, startAngle, endAngle, color, lineWidth, counterClockwise) {
             context.beginPath();
             context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
             context.lineWidth = lineWidth;
@@ -106,6 +127,7 @@ teamwall.instrument.percent = function (configuration) {
             context.stroke();
             context.closePath();
         }
+
     }
 
     return new PercentInstrument(configuration)
