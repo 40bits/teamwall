@@ -80,6 +80,8 @@ All data from the data urls need to be in json format.
 | title	|Title of the instrument |
 | threshold_value | If the value from the data url is below the threshold the display will be rendered as failure |
 
+####100 is good####
+
 Example:
 	
 	{
@@ -92,6 +94,26 @@ Example:
         "threshold_value":80
     }
 
+####0 is good####
+
+If your target is 0 percent you can set `higher_is_better` to false. In this case a value below the threshold will be
+displayed as warning. A value above the threshold will be displayed as failure.
+
+Example:
+
+    {
+        "instrument":"percent",
+        "width":"300",
+        "height":"300",
+        "id":"xs",
+        "title":"XS",
+        "url":"data/xs.json",
+        "threshold_value":5,
+        "higher_is_better":false
+    }
+
+![0 percent is good - failure](https://raw.github.com/40bits/teamwall/master/documentation/images/percent_0_is_good_failure.png "0 percent is good - failure")
+![0 percent is good - warning](https://raw.github.com/40bits/teamwall/master/documentation/images/percent_0_is_good_warning.png "0 percent is good - warning")
 
 #### Data Format ####
 

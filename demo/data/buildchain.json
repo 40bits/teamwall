@@ -1,0 +1,8 @@
+[
+    { "name":"unit tests", "status":"SUCCESS" },
+    { "name":"deploy preview", "status":"SUCCESS" },
+    { "name":"selenium preview", "status":"FAILURE" },
+    { "name":"documentation", "status":"SUCCESS" },
+    { "name":"deploy integration", "status":"SUCCESS" },
+    { "name":"smoke integration", "status":"SUCCESS" }
+]
