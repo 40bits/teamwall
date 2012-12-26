@@ -79,6 +79,7 @@ All data from the data urls need to be in json format.
 |-----------|------------|
 | title	|Title of the instrument |
 | threshold_value | If the value from the data url is below the threshold the display will be rendered as failure |
+| higher_is_better | If set to true, the higher the value the 'greener' the result is, otherwise the more it gets to zero the better it is |
 
 ####100 is good####
 
@@ -91,7 +92,8 @@ Example:
         "id":"codecoverage",
         "title":"Code Coverage",
         "url":"data/codecoverage.json",
-        "threshold_value":80
+        "threshold_value":80.
+        "higher_is_better": true
     }
 
 ####0 is good####

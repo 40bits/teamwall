@@ -6,7 +6,8 @@
  "id":"codecoverage",
  "title":"Code Coverage",
  "url":"data/codecoverage.json",
- "threshold_value":"80"
+ "threshold_value":"80",
+ "higher_is_better": true
  }
  */
 
