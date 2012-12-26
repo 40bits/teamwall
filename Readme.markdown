@@ -27,7 +27,7 @@ It is totally up to you where and when to get the data from, Teamwall simply rea
 
 If you want to serve multiple dashboard from one host you can add the parameter `dashboard` to the url, e.g.
 
-	http://localhost:8080/?dashboard=mydashboard.json
+	http://localhost:8888/?dashboard=mydashboard.json
 
 This will show the definitions from the mydashboard.json file. If no file is specified the standard teamwall.json file will be
 loaded.
