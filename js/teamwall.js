@@ -8,55 +8,58 @@ function TeamwallApp() {
             url: dashboardFile,
             dataType: 'json',
             cache: false,
-            success: function (data) {
-                jQuery.each(data.instruments, function createInstruments() {
-                    var instrument;
-                    var instrumentConfig = this;
-
-                    switch (instrumentConfig.instrument) {
-                        case "percent" :
-                            instrument = teamwall.instrument.percent(instrumentConfig);
-                            break;
-                        case "buildchain" :
-                            instrument = teamwall.instrument.buildChain(instrumentConfig);
-                            break;
-                        case "number" :
-                            instrument = teamwall.instrument.number(instrumentConfig);
-                            break;
-                        case "buildalert" :
-                            instrument = teamwall.instrument.buildAlert(instrumentConfig);
-                            break;
-                        default:
-                            break;
-                    }
-                    instruments.push(instrument);
-                });
-
-                for (var i = 0; i < instruments.length; i++) {
-                    var instrument = instruments[i];
-                    for (var j = 0; j < data.layouts.length; j++) {
-                        var layout = data.layouts[j];
-                        if (layout.id == instrument.getConfiguration().id) {
-                            var canvas = document.createElement("canvas");
-                            canvas.id = layout.id;
-                            canvas.width = layout.width;
-                            canvas.height = layout.height;
-                            document.body.appendChild(canvas);
-                            $(canvas).css({
-                                position: "absolute",
-                                top: layout.top,
-                                left: layout.left
-                            }).appendTo('body');
-                        }
-                    }
-                }
-            },
+            success: configureDashboard,
             statusCode: {
                 404: function () {
                     alert("Please add a " + dashboardFile + " file to the installation.");
                 }
             }
         });
+
+        function configureDashboard(data) {
+            jQuery.each(data.instruments, function createInstruments() {
+                var instrument;
+                var instrumentConfig = this;
+
+                switch (instrumentConfig.instrument) {
+                    case "percent" :
+                        instrument = teamwall.instrument.percent(instrumentConfig);
+                        break;
+                    case "buildchain" :
+                        instrument = teamwall.instrument.buildChain(instrumentConfig);
+                        break;
+                    case "number" :
+                        instrument = teamwall.instrument.number(instrumentConfig);
+                        break;
+                    case "buildalert" :
+                        instrument = teamwall.instrument.buildAlert(instrumentConfig);
+                        break;
+                    default:
+                        break;
+                }
+                instruments.push(instrument);
+            });
+
+            for (var i = 0; i < instruments.length; i++) {
+                var instrument = instruments[i];
+                for (var j = 0; j < data.layouts.length; j++) {
+                    var layout = data.layouts[j];
+                    if (layout.id == instrument.getConfiguration().id) {
+                        var canvas = document.createElement("canvas");
+                        canvas.id = layout.id;
+                        canvas.width = layout.width;
+                        canvas.height = layout.height;
+                        document.body.appendChild(canvas);
+                        $(canvas).css({
+                            position: "absolute",
+                            top: layout.top,
+                            left: layout.left
+                        }).appendTo('body');
+                    }
+                }
+            }
+        }
+
         window.setInterval(updateInstruments, 1000);
     };
 
