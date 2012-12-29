@@ -34,6 +34,8 @@ loaded.
 
 You need a browser with a working HTML 5 canvas to use this.
 
+For a very quick example checkout the [demo directory](tree/master/demo).
+
 ## Example ##
 
 Create a teamwall.json file looking like this:
@@ -68,7 +70,6 @@ Now create a `data/codecoverage.json` file (data directory needs to be created) 
 	{"value":"81.8", "trend":"1"}
 
 Hurray! You got your first Teamwall Dashboard. Now go and change the value and switch back to the browser.
-
 
 ## Instruments ##
 
