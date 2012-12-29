@@ -314,6 +314,27 @@ Example:
 ![RedNumber](https://raw.github.com/40bits/teamwall/master/documentation/images/number_red.png "Red Number")
 ![GreenNumber](https://raw.github.com/40bits/teamwall/master/documentation/images/number_green.png "Green Chain")
 
+### TextArea ###
+
+**Instrument name :** textarea
+
+This instrument will simply show the text given to it. It tries to fill the maximum space and auto computes the best font size so everything fits into the instrument space.
+
+No extra configuration besides id and url.
+
+#### Data Format ####
+
+| Attribute | Definition |
+|-----------|------------|
+| value     | The text to be displayed |
+
+Example:
+
+	{"value":"Hello World"}
+	
+![TextArea](https://raw.github.com/40bits/teamwall/master/documentation/images/textarea.png "Text Area")	
+
+
 # Layout #
 
 The layout is defined the the `layouts` section of the configuration file.

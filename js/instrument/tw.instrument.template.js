@@ -5,6 +5,7 @@
  - to be used, needs to be added in teamwall.js
  - this.setValue and this.getConfiguration are required and will be called, without them this
    is most likely going to fail
+ - add the new instrument to the javascript imports into index.html
  - have fun
  */
 
@@ -25,7 +26,15 @@ teamwall.instrument.template = function (configuration) {
         };
 
         function drawInstrument(data) {
-            // draw something
+            var canvas = document.getElementById(instrumentConfiguration.id);
+            var context = canvas.getContext("2d");
+            var centerX = canvas.width / 2;
+            var centerY = canvas.height / 2;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.fillStyle = teamwall.configuration.background;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            // and now do something
         }
 
     }

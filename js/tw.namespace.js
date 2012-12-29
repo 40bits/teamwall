@@ -7,6 +7,7 @@ var teamwall = {
     buildChain:{},
     buildAlert:{},
     number:{},
-    percent:{}
+    percent:{},
+    textArea:{}
   }
 };

@@ -52,6 +52,9 @@ function TeamwallApp() {
                     case "buildalert" :
                         instrument = teamwall.instrument.buildAlert(instrumentConfiguration);
                         break;
+                    case "textarea" :
+                        instrument = teamwall.instrument.textArea(instrumentConfiguration);
+                        break;
                     default:
                         break;
                 }

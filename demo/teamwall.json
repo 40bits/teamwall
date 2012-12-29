@@ -8,7 +8,7 @@
             "height": 300
         },
         {
-            "id": "buildalert",
+            "id": "buildchain",
             "top": 310,
             "left": 0,
             "width": 300,
@@ -27,6 +27,14 @@
             "left": 620,
             "width": 300,
             "height": 300
+        },
+        {
+            "id": "text",
+            "top": 620,
+            "left": 120,
+            "width": 800,
+            "height": 150
+
         }
     ],
     "instruments": [
@@ -61,6 +69,11 @@
             "url": "data/xs.json",
             "threshold_value": 5,
             "higher_is_better": false
+        } ,
+        {
+            "id": "text",
+            "instrument": "textarea",
+            "url": "data/textarea.json"
         }
 
     ]
