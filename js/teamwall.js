@@ -1,73 +1,86 @@
 function TeamwallApp() {
 
     var instruments = [];
+    var canvases = [];
+    var dashboardConfiguration;
 
-    this.loadDashboard = function (dashboardFile) {
+    this.loadDashboard = function loadDashboard(dashboardConfigurationFile) {
+
 
         $.ajax({
-            url: dashboardFile,
+            url: dashboardConfigurationFile,
             dataType: 'json',
             cache: false,
-            success: configureDashboard,
+            success: function configureDashboard(config) {
+                dashboardConfiguration = config;
+                instruments = createInstruments(config.instruments);
+                canvases = createInstrumentCanvases(instruments, config.layouts);
+                drawCanvases(canvases);
+
+            },
             statusCode: {
                 404: error404
             }
         });
 
-        function error404() {
-            alert("Please add a " + dashboardFile + " file to the installation.");
+        function drawCanvases(canvases) {
+            jQuery.each(canvases, function () {
+                document.body.appendChild(this);
+            })
         }
 
-        function configureDashboard(data) {
+        function error404() {
+            alert("Please add a " + dashboardConfigurationFile + " file to the installation.");
+        }
 
-            function createInstruments() {
-                jQuery.each(data.instruments, function () {
-                    var instrument;
-                    var instrumentConfig = this;
+        function createInstruments(instrumentConfigurations) {
+            var instruments = [];
+            jQuery.each(instrumentConfigurations, function () {
+                var instrument;
+                var instrumentConfiguration = this;
 
-                    switch (instrumentConfig.instrument) {
-                        case "percent" :
-                            instrument = teamwall.instrument.percent(instrumentConfig);
-                            break;
-                        case "buildchain" :
-                            instrument = teamwall.instrument.buildChain(instrumentConfig);
-                            break;
-                        case "number" :
-                            instrument = teamwall.instrument.number(instrumentConfig);
-                            break;
-                        case "buildalert" :
-                            instrument = teamwall.instrument.buildAlert(instrumentConfig);
-                            break;
-                        default:
-                            break;
-                    }
-                    instruments.push(instrument);
-                });
-            }
+                switch (instrumentConfiguration.instrument) {
+                    case "percent" :
+                        instrument = teamwall.instrument.percent(instrumentConfiguration);
+                        break;
+                    case "buildchain" :
+                        instrument = teamwall.instrument.buildChain(instrumentConfiguration);
+                        break;
+                    case "number" :
+                        instrument = teamwall.instrument.number(instrumentConfiguration);
+                        break;
+                    case "buildalert" :
+                        instrument = teamwall.instrument.buildAlert(instrumentConfiguration);
+                        break;
+                    default:
+                        break;
+                }
+                instruments.push(instrument);
+            });
+            return instruments;
+        }
 
-            function positionInstruments() {
-                for (var i = 0; i < instruments.length; i++) {
-                    var instrument = instruments[i];
-                    for (var j = 0; j < data.layouts.length; j++) {
-                        var layout = data.layouts[j];
-                        if (layout.id == instrument.getConfiguration().id) {
-                            var canvas = document.createElement("canvas");
-                            canvas.id = layout.id;
-                            canvas.width = layout.width;
-                            canvas.height = layout.height;
-                            document.body.appendChild(canvas);
-                            $(canvas).css({
-                                position: "absolute",
-                                top: layout.top,
-                                left: layout.left
-                            }).appendTo('body');
-                        }
+        function createInstrumentCanvases(instruments, layoutConfiguration) {
+            var canvases = [];
+            for (var i = 0; i < instruments.length; i++) {
+                var instrument = instruments[i];
+                for (var j = 0; j < layoutConfiguration.length; j++) {
+                    var layout = layoutConfiguration[j];
+                    if (layout.id == instrument.getConfiguration().id) {
+                        var canvas = document.createElement("canvas");
+                        canvas.id = layout.id;
+                        canvas.width = layout.width;
+                        canvas.height = layout.height;
+                        $(canvas).css({
+                            position: "absolute",
+                            top: layout.top,
+                            left: layout.left
+                        });
+                        canvases.push(canvas);
                     }
                 }
             }
-
-            createInstruments();
-            positionInstruments();
+            return canvases;
         }
 
         window.setInterval(updateInstruments, 1000);
