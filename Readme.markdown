@@ -14,6 +14,10 @@ Show the developer the information he needs to know how the code is doing.
 
 Code Coverage, Live stats from servers, Incoming bugs etc.
 
+**Changes**
+
+Checkout the [Changes file](teamwall/blob/master/Changes.markdown).
+
 
 # Get started #
 
