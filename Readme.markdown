@@ -40,24 +40,26 @@ Create a teamwall.json file looking like this:
 
 	
 	{
-    "layouts": [
-        {
-         "id": "codecoverage",
-         "top": 0,
-         "left": 0,
-         "width": 300,
-         "height": 300
-        },
-    ],
-    "instruments": [
-    	{
-       	 "id":"codecoverage",
-       	 "instrument":"percent",
-       	 "title":"Code Coverage",
-       	 "url":"data/codecoverage.json",
-       	 "threshold_value":80
-    	}
-	]
+        "layouts": [
+            {
+                "id": "codecoverage",
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 300
+            }
+        ],
+        "instruments": [
+            {
+                "id":"codecoverage",
+                "instrument":"percent",
+                "title":"Code Coverage",
+                "url":"data/codecoverage.json",
+                "threshold_value":80,
+                "higher_is_better":true
+            }
+        ]
+    }
 	
 This will render a percentage instrument at 0,0 (top left corner) with a width and height of 300 pixel.
 
