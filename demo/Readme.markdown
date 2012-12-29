@@ -11,4 +11,4 @@ The demo is a kind of quick starter. It shows you the possible instruments in ac
 
 It looks like this:
 
-![Demo Screen](https://raw.github.com/40bits/teamwall/master/documentation/images/demo_screen "Demo Screen")
+![Demo Screen](https://raw.github.com/40bits/teamwall/master/documentation/images/demo_screen.png "Demo Screen")
