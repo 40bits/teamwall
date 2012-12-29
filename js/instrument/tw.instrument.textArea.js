@@ -29,7 +29,7 @@ teamwall.instrument.textArea = function (configuration) {
 
             var textWidth = (function me(fontSizes, min, max) {
                 var index = Math.floor((min + max) / 2);
-                context.font = fontSizes[index] + 'px Arial';
+                context.font = fontSizes[index] + 'px '+teamwall.configuration.font;
                 var textWidth = context.measureText(text).width;
                 if (min > max) {
                     return textWidth;

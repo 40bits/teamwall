@@ -73,7 +73,7 @@
         {
             "id": "xs",
             "instrument": "percent",
-            "title": "Excessive Structural Complexity",
+            "title": "Structural Complexity",
             "url": "data/xs.json",
             "threshold_value": 5,
             "higher_is_better": false,
