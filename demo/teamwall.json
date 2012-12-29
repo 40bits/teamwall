@@ -1,44 +1,67 @@
-[
-  {
-    "instrument":"percent",
-    "width":"300",
-    "height":"300",
-    "id":"codecoverage",
-    "title":"Code Coverage",
-    "url":"data/codecoverage.json",
-    "threshold_value":75,
-    "higher_is_better":true
-  },
-  {
-    "instrument":"buildchain",
-    "width":"300",
-    "height":"300",
-    "id":"buildchain",
-    "url":"data/buildchain.json"
-  },
-  {
-   "instrument":"number",
-   "width":"300",
-   "height":"300",
-   "id":"violations",
-   "title":"Code Violations",
-   "url":"data/codeviolations.json",
-   "threshold_value":"5",
-   "decimal_places":"0",
-   "higher_is_better":false,
-   "unit":"#",
-   "show_trend": true
-  },
-  {
-    "instrument":"percent",
-    "width":"300",
-    "height":"300",
-    "id":"xs",
-    "title":"XS",
-    "url":"data/xs.json",
-    "threshold_value":5,
-    "higher_is_better":false
-  }
+{
+    "layouts": [
+        {
+            "id": "codecoverage",
+            "top": 0,
+            "left": 0,
+            "width": 300,
+            "height": 300
+        },
+        {
+            "id": "buildalert",
+            "top": 310,
+            "left": 0,
+            "width": 300,
+            "height": 300
+        },
+        {
+            "id": "violations",
+            "top": 0,
+            "left": 310,
+            "width": 300,
+            "height": 300
+        },
+        {
+            "id": "xs",
+            "top": 310,
+            "left": 620,
+            "width": 300,
+            "height": 300
+        }
+    ],
+    "instruments": [
+        {
+            "id": "codecoverage",
+            "instrument": "percent",
+            "title": "Code Coverage",
+            "url": "data/codecoverage.json",
+            "threshold_value": 75,
+            "higher_is_better": true
+        },
+        {
+            "id": "buildchain",
+            "instrument": "buildchain",
+            "url": "data/buildchain.json"
+        },
+        {
+            "id": "violations",
+            "instrument": "number",
+            "title": "Code Violations",
+            "url": "data/codeviolations.json",
+            "threshold_value": "5",
+            "decimal_places": "0",
+            "higher_is_better": false,
+            "unit": "#",
+            "show_trend": true
+        },
+        {
+            "id": "xs",
+            "instrument": "percent",
+            "title": "XS",
+            "url": "data/xs.json",
+            "threshold_value": 5,
+            "higher_is_better": false
+        }
 
-
-]
+    ]
+}

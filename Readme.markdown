@@ -38,19 +38,30 @@ You need a browser with a working HTML 5 canvas to use this.
 
 Create a teamwall.json file looking like this:
 
-	[
+	
+	{
+    "layouts": [
+        {
+         "id": "codecoverage",
+         "top": 0,
+         "left": 0,
+         "width": 300,
+         "height": 300
+        },
+    ],
+    "instruments": [
     	{
-       	 "instrument":"percent",
-       	 "width":"500",
-       	 "height":"200",
        	 "id":"codecoverage",
+       	 "instrument":"percent",
        	 "title":"Code Coverage",
        	 "url":"data/codecoverage.json",
        	 "threshold_value":80
     	}
 	]
 	
-Create a `data/codecoverage.json` file (data directory needs to be created) with the following content:
+This will render a percentage instrument at 0,0 (top left corner) with a width and height of 300 pixel.
+
+Now create a `data/codecoverage.json` file (data directory needs to be created) with the following content:
 
 	{"value":"81.8", "trend":"1"}
 
@@ -61,11 +72,11 @@ Hurray! You got your first Teamwall Dashboard. Now go and change the value and s
 
 ### Attributes of all Instruments ###
 
+Instruments are defined the the `instruments` section of the configuration file.
+
 |Attribute | Definition| 
 |----------|-----------|
 | instrument | Name of the instrument to use, can be any of the instrument names below
-| width | Width of the instrument 
-| height | Height of the instrument
 | id | Id of the instrument
 | url | Url to get updated data
 
@@ -87,8 +98,6 @@ Example:
 	
 	{
 		"instrument":"percent",
-        "width":"500",
-        "height":"200",
         "id":"codecoverage",
         "title":"Code Coverage",
         "url":"data/codecoverage.json",
@@ -105,8 +114,6 @@ Example:
 
     {
         "instrument":"percent",
-        "width":"300",
-        "height":"300",
         "id":"xs",
         "title":"XS",
         "url":"data/xs.json",
@@ -154,8 +161,6 @@ Example:
 
 	{
         "instrument":"buildchain",
-        "width":"300",
-        "height":"300",
         "id":"buildchain",
         "url":"data/buildchain.json"
     }
@@ -198,8 +203,6 @@ Example:
 
 	{
         "instrument":"buildalert",
-        "width":"300",
-        "height":"300",
         "id":"buildalert",
         "url":"data/buildalert.json"
     }
@@ -273,8 +276,6 @@ Example:
 
 	{
 	 "instrument":"number",
-	 "width":"300",
-	 "height":"300",
 	 "id":"violations",
 	 "title":"Code Violations",
 	 "url":"data/codeviolations.json",
@@ -309,8 +310,35 @@ Example:
 	
 ![RedNumber](https://raw.github.com/40bits/teamwall/master/documentation/images/number_red.png "Red Number")
 ![GreenNumber](https://raw.github.com/40bits/teamwall/master/documentation/images/number_green.png "Green Chain")
+
+# Layout #
+
+The layout is defined the the `layouts` section of the configuration file.
+
+The id must match to one of the instruments defined in the `instrument` section. According to that the instrument will have an `width` and `height` and is positioned at `top` and `left`.
+
+| Attribute | Definition |
+|-----------|------------|
+| id        | id of the instrument |
+| width     | Width of the instrument | 
+| height    | Height of the instrument |
+| top       | distance from top of the screen |
+| left      | distance from the left of the screen |
+
+Example :
+
+
+	 "layouts": [
+        {
+            "id": "codecoverage",
+            "top": 0,
+            "left": 0,
+            "width": 300,
+            "height": 300
+        },
+      ]
+       
 	
 # TODO #
 
-- Better Layouting options
 - More Instruments 
