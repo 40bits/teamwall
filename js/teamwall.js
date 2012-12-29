@@ -55,7 +55,9 @@ function TeamwallApp() {
                     default:
                         break;
                 }
-                instruments.push(instrument);
+                if (instrument) {
+                    instruments.push(instrument);
+                }
             });
             return instruments;
         }
