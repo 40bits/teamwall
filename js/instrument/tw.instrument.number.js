@@ -1,8 +1,6 @@
 /*
  {
  "instrument":"number",
- "width":"300",
- "height":"300",
  "id":"violations",
  "title":"Code Violations",
  "url":"data/codeviolations.json",

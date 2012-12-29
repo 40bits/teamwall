@@ -1,8 +1,6 @@
 /*
  {
  "instrument":"buildchain",
- "width":"300",
- "height":"300",
  "id":"buildchain",
  "url":"data/buildchain.json"
  }

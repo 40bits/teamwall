@@ -1,8 +1,6 @@
 /*
  {
  "instrument":"buildalert",
- "width":"300",
- "height":"300",
  "id":"buildalert",
  "url":"data/buildalert.json"
  }

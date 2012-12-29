@@ -1,8 +1,6 @@
 /*
  {
  "instrument":"percent",
- "width":"300",
- "height":"300",
  "id":"codecoverage",
  "title":"Code Coverage",
  "url":"data/codecoverage.json",
