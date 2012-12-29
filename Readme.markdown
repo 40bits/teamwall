@@ -14,6 +14,10 @@ Show the developer the information he needs to know how the code is doing.
 
 Code Coverage, Live stats from servers, Incoming bugs etc.
 
+It looks like this:
+
+![Demo Screen](https://raw.github.com/40bits/teamwall/master/documentation/images/demo_screen.png "Demo Screen")
+
 **Changes**
 
 Checkout the [Changes file](teamwall/blob/master/Changes.markdown).

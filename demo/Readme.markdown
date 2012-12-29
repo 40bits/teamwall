@@ -6,9 +6,3 @@ The demo is a kind of quick starter. It shows you the possible instruments in ac
 
 - Copy `teamwall.json` and the `data` directory (or symlink it) into your project directory (the one which contains server.js).
 - Run your server (e.g. node server.js) and visit `http:localhost:8888`
-
-# Don't feel like running it ? #
-
-It looks like this:
-
-![Demo Screen](https://raw.github.com/40bits/teamwall/master/documentation/images/demo_screen.png "Demo Screen")
