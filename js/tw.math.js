@@ -1,4 +1,7 @@
 teamwall.math.round = function (value, decimalPlace) {
+    if (decimalPlace == 0) {
+        return value;
+    }
     if (decimalPlace < 1 || decimalPlace > 14) {
         return false;
     }

@@ -43,7 +43,8 @@ teamwall.instrument.number = function (configuration) {
 
             teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
             showThreshold(value, threshold, context, centerX, canvas);
-            teamwall.render.writeText(context, value, centerX, centerY, getFontWithRightSize(canvas, context, value), teamwall.configuration.colorText);
+            var valueToBeDisplayed = teamwall.math.round(value, instrumentConfiguration.decimal_places);
+            teamwall.render.writeText(context, valueToBeDisplayed, centerX, centerY, getFontWithRightSize(canvas, context, valueToBeDisplayed), teamwall.configuration.colorText);
             showTrend(trend, context, canvas);
             if (helpLines) {
                 drawHelpLines(canvas, context);
@@ -61,7 +62,7 @@ teamwall.instrument.number = function (configuration) {
             }
             if (instrumentConfiguration.threshold_value != undefined) {
                 var thresholdColor = teamwall.configuration.colorOk;
-                var thresholdToActualDifference = teamwall.math.round(value - instrumentConfiguration.threshold_value, 1);
+                var thresholdToActualDifference = teamwall.math.round(value - instrumentConfiguration.threshold_value, instrumentConfiguration.decimal_places);
                 if ((value < instrumentConfiguration.threshold_value && instrumentConfiguration.higher_is_better) ||
                     (value > instrumentConfiguration.threshold_value && !instrumentConfiguration.higher_is_better)) {
                     thresholdColor = teamwall.configuration.colorFailure;
