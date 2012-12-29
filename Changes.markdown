@@ -4,7 +4,9 @@ Instruments can now be positioned. **The format of the config file changed**. It
 
 Added a `textarea` instrument which displays text.
 
-Added a `template` instrument which can be used as basis for new instruments.
+Added a `template` instrument which can be used as base for new instruments.
+
+Added a trend to the `percentage` instrument.
 
 ## 2012-12-26
 

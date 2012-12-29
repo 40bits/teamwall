@@ -1,0 +1,23 @@
+[
+    {
+        "name":"Web UI",
+        "chain":
+                [
+                    { "name":"unit tests", "status":"SUCCESS" },
+                    { "name":"deploy preview", "status":"SUCCESS" },
+                    { "name":"selenium preview", "status":"FAILURE" },
+                    { "name":"documentation", "status":"SUCCESS" },
+                    { "name":"deploy integration", "status":"SUCCESS" },
+                    { "name":"smoke integration", "status":"SUCCESS" }
+                ]
+    },
+    {
+        "name":"API",
+        "chain":
+                [
+                    { "name":"Unit Tests", "status":"SUCCESS" },
+                    { "name":"Integration tests", "status":"FAILURE" },
+                    { "name":"System tests", "status":"SUCCESS" }
+                ]
+    }
+]

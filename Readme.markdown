@@ -136,7 +136,7 @@ Example:
 | Attribute | Definition |
 |-----------|------------|
 | value | The value to be displayed |
-| trend | The trend of the value (not yet implemented)|
+| trend | The trend of the value |
 | threshold_value | The new threshold value (optional) |
 
 
@@ -144,9 +144,11 @@ Where trend is defined as this:
 
 |Trend Value | Definition |
 |------------|------------|
-| 1 | Bigger value than previous |
+| 1 | Better value than previous |
 | 0 | Same value as previous |
-| -1 | Smaller value than previous |
+| -1 | Worse value than previous |
+
+The meaning of better and worse is depending on the attribute `higher_is_better`.
 
 Example:
 

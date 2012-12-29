@@ -55,13 +55,13 @@ teamwall.instrument.percent = function (configuration) {
             drawArcClockwise(context, centerX, centerY, radius, 0, degree360, teamwall.configuration.colorBackground, lineWidth);
             drawArcClockwise(context, centerX, centerY, radius, zeroPercentAngle, valueEndAngle, valueColor, lineWidth * 0.8);
             if (!instrumentConfiguration.higher_is_better) {
-                drawArcCounterClockwise(context, centerX, centerY, radius, zeroPercentAngle-0.04, valueEndAngle+0.04, teamwall.configuration.colorOk, lineWidth * 0.8);
+                drawArcCounterClockwise(context, centerX, centerY, radius, zeroPercentAngle - 0.04, valueEndAngle + 0.04, teamwall.configuration.colorOk, lineWidth * 0.8);
             }
             drawThresholdMarker(lineWidth, centerX, centerY, radius, context, value);
 
             teamwall.render.writeText(context, value, centerX, centerY, teamwall.render.font(canvas, 13), teamwall.configuration.colorText);
             teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
-            drawTrend(context, canvas, centerX, centerY, trend);
+            drawTrend(context, canvas, trend);
         }
 
         function defineValueColor(value) {
@@ -82,12 +82,59 @@ teamwall.instrument.percent = function (configuration) {
             return valueColor;
         }
 
-        function drawTrend(context, canvas, centerX, centerY, trend) {
+        function drawTrend(context, canvas, trend) {
+            if (instrumentConfiguration.show_trend) {
+                var TREND_UP = "1";
+                var TREND_DOWN = "-1";
+
+                if (trend == TREND_UP) {
+                    var color = instrumentConfiguration.higher_is_better ? teamwall.configuration.colorOk : teamwall.configuration.colorFailure;
+                    drawTrendArrow(context, canvas, true, color);
+                }
+                if (trend == TREND_DOWN) {
+                    var color = instrumentConfiguration.higher_is_better ? teamwall.configuration.colorFailure : teamwall.configuration.colorOk;
+                    drawTrendArrow(context, canvas, false, color);
+                }
+            }
+
+        }
+
+        function drawTrendArrow(context, canvas, upArrow, color) {
+            context.beginPath();
+
             //    B
             //   / \
             //  A---C
-            //
-            //   X,Y
+
+            var pointB_X = canvas.width / 2,
+                pointA_X = canvas.width / 2 - (canvas.width / 25),
+                pointC_X = canvas.width / 2 + (canvas.width / 25),
+                pointB_Y, pointA_Y , pointC_Y,
+                arrowBaseLine_Y, arrowPeak_Y;
+
+            if (upArrow) {
+                arrowBaseLine_Y = 0.33 * canvas.height;
+                arrowPeak_Y = 0.30 * canvas.height;
+            } else {
+                arrowBaseLine_Y = 0.67 * canvas.height;
+                arrowPeak_Y = 0.7 * canvas.height;
+            }
+
+            pointB_Y = arrowPeak_Y;
+            pointA_Y = arrowBaseLine_Y;
+            pointC_Y = arrowBaseLine_Y;
+
+            context.moveTo(pointA_X, pointA_Y);
+            context.lineTo(pointB_X, pointB_Y);
+            context.lineTo(pointC_X, pointC_Y);
+            context.lineTo(pointA_X, pointA_Y);
+            context.closePath();
+            context.lineWidth = 0;
+            context.strokeStyle = color;
+            context.fillStyle = color;
+            context.fill();
+            context.stroke();
+            context.closePath();
 
         }
 
