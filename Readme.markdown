@@ -34,7 +34,7 @@ loaded.
 
 You need a browser with a working HTML 5 canvas to use this.
 
-For a very quick example checkout the [demo directory](tree/master/demo).
+For a very quick example checkout the [demo directory](teamwall/tree/master/demo).
 
 ## Example ##
 
