@@ -63,7 +63,10 @@ function TeamwallApp() {
         }
 
         function createInstrumentCanvases(instruments, layoutConfiguration) {
+            var DEFAULT_WIDTH = 300;
+            var DEFAULT_HEIGHT = 300;
             var canvases = [];
+
             for (var i = 0; i < instruments.length; i++) {
                 var instrument = instruments[i];
                 for (var j = 0; j < layoutConfiguration.length; j++) {
@@ -71,8 +74,8 @@ function TeamwallApp() {
                     if (layout.id == instrument.getConfiguration().id) {
                         var canvas = document.createElement("canvas");
                         canvas.id = layout.id;
-                        canvas.width = layout.width;
-                        canvas.height = layout.height;
+                        canvas.width = layout.width ? layout.width : DEFAULT_WIDTH;
+                        canvas.height = layout.height ? layout.height : DEFAULT_HEIGHT;
                         $(canvas).css({
                             position: "absolute",
                             top: layout.top,
