@@ -159,8 +159,8 @@ teamwall.instrument.number = function (configuration) {
             //   / \
             //  A---C
 
-            var pointAC_YLine = canvas.height / 2;
-            var distanceToCenter = (canvas.height / 40);
+            var pointAC_YLine = canvas.height / 2,
+                distanceToCenter = (canvas.height / 20);
             if (upArrow) {
                 pointAC_YLine = pointAC_YLine - distanceToCenter;
             }
@@ -168,14 +168,15 @@ teamwall.instrument.number = function (configuration) {
                 pointAC_YLine = pointAC_YLine + distanceToCenter;
             }
 
-            var pointA_X = canvas.width * 0.87;
-            var pointA_Y = pointAC_YLine;
-            var pointB_X = canvas.width * 0.92;
-            var pointB_Y = pointAC_YLine + (canvas.height / 20);
+            var pointA_X = canvas.width * 0.85,
+                pointB_X = canvas.width * 0.90,
+                pointC_X = canvas.width * 0.95,
+                pointA_Y = pointAC_YLine,
+                pointB_Y = pointAC_YLine + (canvas.height / 20);
+
             if (upArrow) {
                 pointB_Y = pointAC_YLine - (canvas.height / 20);
             }
-            var pointC_X = canvas.width * 0.97;
             var pointC_Y = pointAC_YLine;
 
             context.moveTo(pointA_X, pointA_Y);
@@ -184,12 +185,11 @@ teamwall.instrument.number = function (configuration) {
             context.lineTo(pointA_X, pointA_Y);
             context.closePath();
             context.lineCap = "round";
-            context.lineWidth = 0;
+            context.lineWidth = 1;
             context.strokeStyle = color;
             context.fillStyle = color;
             context.fill();
             context.stroke();
-            context.closePath();
 
         }
     }

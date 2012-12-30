@@ -114,10 +114,10 @@ teamwall.instrument.percent = function (configuration) {
                 arrowBaseLine_Y, arrowPeak_Y;
 
             if (upArrow) {
-                arrowBaseLine_Y = 0.33 * canvas.height;
+                arrowBaseLine_Y = 0.35 * canvas.height;
                 arrowPeak_Y = 0.30 * canvas.height;
             } else {
-                arrowBaseLine_Y = 0.67 * canvas.height;
+                arrowBaseLine_Y = 0.65 * canvas.height;
                 arrowPeak_Y = 0.7 * canvas.height;
             }
 
@@ -130,12 +130,11 @@ teamwall.instrument.percent = function (configuration) {
             context.lineTo(pointC_X, pointC_Y);
             context.lineTo(pointA_X, pointA_Y);
             context.closePath();
-            context.lineWidth = 0;
+            context.lineWidth = 1;
             context.strokeStyle = color;
             context.fillStyle = color;
             context.fill();
             context.stroke();
-            context.closePath();
 
         }
 
