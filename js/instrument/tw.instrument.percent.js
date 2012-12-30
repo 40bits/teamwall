@@ -56,11 +56,12 @@ teamwall.instrument.percent = function (configuration) {
             drawArcClockwise(context, centerX, centerY, radius, 0, degree360, teamwall.configuration.colorBackground, lineWidth);
             drawArcClockwise(context, centerX, centerY, radius, zeroPercentAngle, valueEndAngle, valueColor, lineWidth * 0.8);
             if (!instrumentConfiguration.higher_is_better) {
-                drawArcCounterClockwise(context, centerX, centerY, radius, zeroPercentAngle - 0.04, valueEndAngle + 0.04, teamwall.configuration.colorOk, lineWidth * 0.8);
+                drawArcCounterClockwise(context, centerX, centerY, radius, zeroPercentAngle - 0.01, valueEndAngle + 0.01, teamwall.configuration.colorOk, lineWidth * 0.8);
             }
             drawThresholdMarker(lineWidth, centerX, centerY, radius, context, value);
 
             teamwall.render.writeText(context, value, centerX, centerY, teamwall.render.font(canvas, 13), teamwall.configuration.colorText);
+            teamwall.render.writeText(context, "%", canvas.width*0.72, canvas.height*0.47, teamwall.render.font(canvas, 4), teamwall.configuration.colorText);
             teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
             drawTrend(context, canvas, trend);
         }
