@@ -29,10 +29,22 @@ teamwall.instrument.buildChain = function (configuration) {
             context.textAlign = "center";
 
             context.clearRect(0, 0, canvas.width, canvas.height);
+            context.fillStyle = teamwall.configuration.background;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            var headingOffSet = canvas.height,
+                buildChainStartOffSet = 0;
+
+            if (instrumentConfiguration.title) {
+                teamwall.render.writeText(context, instrumentConfiguration.title, canvas.width/2, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
+                headingOffSet = canvas.height * 0.9;
+                buildChainStartOffSet = canvas.height * 0.1;
+            }
 
             var lengthOfBuildChain = value.length;
             if (lengthOfBuildChain > 0) {
-                var heightOfOneBlock = canvas.height / lengthOfBuildChain;
+
+                var heightOfOneBlock = headingOffSet / lengthOfBuildChain;
                 var part = 0;
                 jQuery.each(value, function () {
                     var buildChainPart = this;
@@ -42,9 +54,9 @@ teamwall.instrument.buildChain = function (configuration) {
                     else {
                         context.fillStyle = teamwall.configuration.colorFailure;
                     }
-                    context.fillRect(0, part * heightOfOneBlock, canvas.width, heightOfOneBlock);
+                    context.fillRect(0, (part * heightOfOneBlock) + buildChainStartOffSet, canvas.width, heightOfOneBlock);
                     context.fillStyle = teamwall.configuration.colorText;
-                    context.fillText(buildChainPart.name, canvas.width / 2, part * heightOfOneBlock + (heightOfOneBlock / 2), canvas.width);
+                    context.fillText(buildChainPart.name, canvas.width / 2, part * heightOfOneBlock + (heightOfOneBlock / 2) + buildChainStartOffSet, canvas.width);
                     part++;
 
                 });

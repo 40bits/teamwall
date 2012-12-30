@@ -169,12 +169,16 @@ Example:
 
 **Instrument name :** buildchain
 
+| Attribute | Definition |
+|-----------|------------|
+| title	|Title of the instrument |
 
 Example:
 
 	{
         "instrument":"buildchain",
         "id":"buildchain",
+        "title":"Webshop Buildchain",
         "url":"data/buildchain.json"
     }
 

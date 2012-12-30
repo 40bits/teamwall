@@ -40,4 +40,6 @@ teamwall.render.writeText = function (context, text, x, y, font, color) {
     context.fillStyle = color;
     context.textBaseline = "middle";
     context.fillText(text, x, y);
+//    context.shadowColor="black";
+//    context.shadowBlur = 10;
 };
