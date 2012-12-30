@@ -6,5 +6,7 @@ body {
 }
 
 canvas {
-    /*background: #585757;*/
+    -moz-box-shadow: 0 0 2px 2px #363535;
+    -webkit-box-shadow: 0 0 2px 2px#363535;
+    box-shadow: 0 0 2px 2px #363535;
 }
