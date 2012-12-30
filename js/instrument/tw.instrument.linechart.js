@@ -1,26 +1,14 @@
-/*
- Template for an instrument
 
- - needs to be registered in js/tw.namespace.js under instrument to match the defined namespace here
- - to be used, needs to be added in teamwall.js
- - this.setValue and this.getConfiguration are required and will be called, without them this
-   is most likely going to fail
- - add the new instrument to the javascript imports into index.html
- - have fun
- */
+teamwall.instrument.linechart = function (configuration) {
 
-teamwall.instrument.template = function (configuration) {
-
-    function TemplateInstrument(configuration) {
+    function LineChartInstrument(configuration) {
 
         var instrumentConfiguration = configuration;
 
-        // required
         this.setValue = function (data) {
             drawInstrument(data);
         };
 
-        // required
         this.getConfiguration = function () {
             return instrumentConfiguration;
         };
@@ -30,14 +18,17 @@ teamwall.instrument.template = function (configuration) {
             var context = canvas.getContext("2d");
             var centerX = canvas.width / 2;
             var centerY = canvas.height / 2;
+
             context.clearRect(0, 0, canvas.width, canvas.height);
             context.fillStyle = teamwall.configuration.instrumentBackground;
             context.fillRect(0, 0, canvas.width, canvas.height);
 
-            // and now do something
+            teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
+
+
         }
 
     }
 
-    return new TemplateInstrument(configuration)
+    return new LineChartInstrument(configuration)
 };

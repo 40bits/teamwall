@@ -40,7 +40,7 @@ teamwall.instrument.percent = function (configuration) {
             var lineWidth = masterScaleFactor / 9;
 
             context.clearRect(0, 0, canvas.width, canvas.height);
-            context.fillStyle = teamwall.configuration.background;
+            context.fillStyle = teamwall.configuration.instrumentBackground;
             context.fillRect(0, 0, canvas.width, canvas.height);
 
             if (threshold) {

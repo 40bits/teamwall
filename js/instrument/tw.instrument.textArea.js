@@ -23,7 +23,7 @@ teamwall.instrument.textArea = function (configuration) {
                 centerY = canvas.height / 2,
                 text = data.value;
             context.clearRect(0, 0, canvas.width, canvas.height);
-            context.fillStyle = teamwall.configuration.background;
+            context.fillStyle = teamwall.configuration.instrumentBackground;
             context.fillRect(0, 0, canvas.width, canvas.height);
             context.textBaseline = 'middle';
 

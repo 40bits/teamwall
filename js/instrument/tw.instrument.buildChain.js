@@ -29,7 +29,7 @@ teamwall.instrument.buildChain = function (configuration) {
             context.textAlign = "center";
 
             context.clearRect(0, 0, canvas.width, canvas.height);
-            context.fillStyle = teamwall.configuration.background;
+            context.fillStyle = teamwall.configuration.instrumentBackground;
             context.fillRect(0, 0, canvas.width, canvas.height);
 
             var headingOffSet = canvas.height,

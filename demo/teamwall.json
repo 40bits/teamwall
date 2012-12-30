@@ -22,6 +22,13 @@
             "height": 300
         },
         {
+            "id": "stargazers",
+            "top": 310,
+            "left": 310,
+            "width": 300,
+            "height": 300
+        },
+        {
             "id": "xs",
             "top": 310,
             "left": 620,
@@ -72,11 +79,19 @@
             "show_trend": true
         },
         {
+            "id": "stargazers",
+            "instrument": "number",
+            "title": "Stargazers",
+            "url": "data/stargazers.json",
+            "decimal_places": "0",
+            "higher_is_better": true
+        },
+        {
             "id": "xs",
             "instrument": "percent",
             "title": "Structural Complexity",
             "url": "data/xs.json",
-            "threshold_value": 5,
+            "threshold_value": 4,
             "higher_is_better": false,
             "show_trend": true
         } ,

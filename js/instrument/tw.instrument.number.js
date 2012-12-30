@@ -38,7 +38,7 @@ teamwall.instrument.number = function (configuration) {
             var centerY = canvas.height / 2;
 
             context.clearRect(0, 0, canvas.width, canvas.height);
-            context.fillStyle = teamwall.configuration.background;
+            context.fillStyle = teamwall.configuration.instrumentBackground;
             context.fillRect(0, 0, canvas.width, canvas.height);
 
             teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
