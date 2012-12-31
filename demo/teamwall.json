@@ -1,110 +1,105 @@
-{
-    "layouts": [
-        {
-            "id": "codecoverage",
-            "top": 0,
-            "left": 0,
-            "width": 300,
-            "height": 300
-        },
-        {
-            "id": "buildchain",
-            "top": 310,
-            "left": 0,
-            "width": 300,
-            "height": 300
-        },
-        {
-            "id": "violations",
-            "top": 0,
-            "left": 310,
-            "width": 300,
-            "height": 300
-        },
-        {
-            "id": "stargazers",
-            "top": 310,
-            "left": 310,
-            "width": 300,
-            "height": 300
-        },
-        {
-            "id": "xs",
-            "top": 310,
-            "left": 620,
-            "width": 300,
-            "height": 300
-        },
-        {
-            "id": "text",
-            "top": 620,
-            "left": 120,
-            "width": 800,
-            "height": 150
-        },
-        {
-            "id":"buildalert",
-            "top": 50,
-            "left": 680,
-            "width": 200,
-            "height": 200
-        }
-
-    ],
-    "instruments": [
-        {
-            "id": "codecoverage",
-            "instrument": "percent",
-            "title": "Code Coverage",
-            "url": "data/codecoverage.json",
-            "threshold_value": 75,
-            "higher_is_better": true,
-            "show_trend": true
-        },
-        {
-            "id": "buildchain",
-            "title":"Webshop Buildchain",
-            "instrument": "buildchain",
-            "url": "data/buildchain.json"
-        },
-        {
-            "id": "violations",
-            "instrument": "number",
-            "title": "Code Violations",
-            "url": "data/codeviolations.json",
-            "threshold_value": "5",
-            "decimal_places": "0",
-            "higher_is_better": false,
-            "unit": "#",
-            "show_trend": true
-        },
-        {
-            "id": "stargazers",
-            "instrument": "number",
-            "title": "Stargazers",
-            "url": "data/stargazers.json",
-            "decimal_places": "0",
-            "higher_is_better": true
-        },
-        {
-            "id": "xs",
-            "instrument": "percent",
-            "title": "Structural Complexity",
-            "url": "data/xs.json",
-            "threshold_value": 4,
-            "higher_is_better": false,
-            "show_trend": true
-        } ,
-        {
-            "id": "text",
-            "instrument": "textarea",
-            "url": "data/textarea.json"
-        },
-        {
-            "instrument":"buildalert",
-            "id":"buildalert",
-            "url":"data/buildalert.json"
-        }
-
-    ]
-}
+{"layouts": [
+    {
+        "id": "codecoverage",
+        "top": 118,
+        "left": 8,
+        "width": 300,
+        "height": 300
+    },
+    {
+        "id": "buildchain",
+        "top": 428,
+        "left": 8,
+        "width": 300,
+        "height": 300
+    },
+    {
+        "id": "violations",
+        "top": 118,
+        "left": 318,
+        "width": 300,
+        "height": 300
+    },
+    {
+        "id": "stargazers",
+        "top": 428,
+        "left": 628,
+        "width": 300,
+        "height": 300
+    },
+    {
+        "id": "xs",
+        "top": 428,
+        "left": 318,
+        "width": 300,
+        "height": 300
+    },
+    {
+        "id": "text",
+        "top": 8,
+        "left": 8,
+        "width": 800,
+        "height": 100
+    },
+    {
+        "id": "buildalert",
+        "top": 218,
+        "left": 628,
+        "width": 200,
+        "height": 200
+    }
+], "instruments": [
+    {
+        "id": "codecoverage",
+        "instrument": "percent",
+        "title": "Code Coverage",
+        "url": "data/codecoverage.json",
+        "threshold_value": "80",
+        "higher_is_better": true,
+        "show_trend": true
+    },
+    {
+        "id": "buildchain",
+        "title": "Webshop Buildchain",
+        "instrument": "buildchain",
+        "url": "data/buildchain.json"
+    },
+    {
+        "id": "violations",
+        "instrument": "number",
+        "title": "Code Violations",
+        "url": "data/codeviolations.json",
+        "threshold_value": "5",
+        "decimal_places": "0",
+        "higher_is_better": false,
+        "unit": "#",
+        "show_trend": true
+    },
+    {
+        "id": "stargazers",
+        "instrument": "number",
+        "title": "Stargazers",
+        "url": "data/stargazers.json",
+        "decimal_places": "0",
+        "higher_is_better": true
+    },
+    {
+        "id": "xs",
+        "instrument": "percent",
+        "title": "Structural Complexity",
+        "url": "data/xs.json",
+        "threshold_value": 4,
+        "higher_is_better": false,
+        "show_trend": true
+    },
+    {
+        "id": "text",
+        "instrument": "textarea",
+        "url": "data/textarea.json"
+    },
+    {
+        "instrument": "buildalert",
+        "id": "buildalert",
+        "url": "data/buildalert.json"
+    }
+]}

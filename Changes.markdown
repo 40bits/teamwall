@@ -1,3 +1,9 @@
+## 2012-31-12
+
+All instruments can now be moved with the mouse. On each change the complete config file will be written to the javascript console.
+
+Added a title option to `buildchain` instrument.
+
 ## 2012-12-29
 
 Instruments can now be positioned. **The format of the config file changed**. It now has two sections: one for the instruments and one for the layouting options. Dimensions and position is now completly seperated from the configuration of the instrument itself. Both are coupled via the `id` attribute.

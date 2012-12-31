@@ -18,6 +18,7 @@ function TeamwallApp() {
                 drawCanvases(canvases);
                 $(function () {
                     $("canvas").draggable({
+                        grid: [ 10, 10 ],
                         start: function () {
                             var canvas = this;
                             canvas.style.zIndex = 10;
