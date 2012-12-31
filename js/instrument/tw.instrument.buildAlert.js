@@ -36,17 +36,14 @@ teamwall.instrument.buildAlert = function (configuration) {
       if (0 < numberOfBuildChains) {
         jQuery.each(value, function () {
           var buildChain = this;
-          console.log(buildChain.name);
           jQuery.each(buildChain.chain, function () {
             var buildChainPart = this;
-            console.log(buildChainPart.status);
             if (buildChainPart.status != "SUCCESS") {
               failedBuilds.push({"chain": buildChain, "part": buildChainPart});
             }
           });
 
         });
-        console.log("# FAILED BUILDS " + failedBuilds.length);
         teamwall.render.writeText(context, "Builds", centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
 
         if (0 < failedBuilds.length) {
