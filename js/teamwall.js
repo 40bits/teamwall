@@ -16,7 +16,40 @@ function TeamwallApp() {
                 instruments = createInstruments(config.instruments);
                 canvases = createInstrumentCanvases(instruments, config.layouts);
                 drawCanvases(canvases);
+                $(function () {
+                    $("canvas").draggable({
+                        start: function () {
+                            var canvas = this;
+                            canvas.style.zIndex = 10;
+                        },
+                        stop: function () {
 
+                            var layouts = [];
+                            jQuery.each(canvases, function () {
+                                var canvas = this;
+                                var layout = {};
+                                layout.id = canvas.id;
+                                layout.top = canvas.offsetTop;
+                                layout.left = canvas.offsetLeft;
+                                layout.width = canvas.width;
+                                layout.height = canvas.height;
+                                layouts.push(layout);
+                                canvas.style.zIndex = 1;
+                            });
+
+                            var instrumentConfigurations = [];
+                            jQuery.each(instruments, function() {
+                               instrumentConfigurations.push(this.getConfiguration())
+                            });
+
+                            var teamwallConfiguration = {};
+                            teamwallConfiguration.layouts = layouts;
+                            teamwallConfiguration.instruments = instrumentConfigurations;
+
+                            console.log(JSON.stringify(teamwallConfiguration));
+                        }
+                    });
+                });
             },
             statusCode: {
                 404: error404
@@ -84,6 +117,7 @@ function TeamwallApp() {
                             top: layout.top,
                             left: layout.left
                         });
+                        canvas.style.zIndex = 1;
                         canvases.push(canvas);
                     }
                 }
