@@ -1,3 +1,7 @@
+## 2013-01-01
+
+Clicking on the Settings icons in the lower right corner now enables drag mode.
+
 ## 2012-31-12
 
 All instruments can now be moved with the mouse. On each change the complete config file will be written to the javascript console.

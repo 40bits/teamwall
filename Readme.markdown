@@ -44,6 +44,10 @@ You need a browser with a working HTML 5 canvas to use this.
 
 For a very quick example checkout the [demo directory](teamwall/tree/master/demo).
 
+## Moving around ##
+
+You can enable drag mode by clicking on the icon in the lower right corner. Once activated you can move all instruments around. A second click on it disables drag mode. With each move a complete config file (teamwall.json) will be written to the javacript console. This will be better in the future. Promised!
+
 ## Example ##
 
 Create a teamwall.json file looking like this:
