@@ -17,3 +17,9 @@ canvas {
     box-shadow: 0 0 2px 2px #4169e1;
 }
 
+#configui {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
