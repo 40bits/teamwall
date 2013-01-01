@@ -1,56 +1,17 @@
 function TeamwallApp() {
 
-    var instruments = [];
-    var canvases = [];
-    var dashboardConfiguration;
-
     this.loadDashboard = function loadDashboard(dashboardConfigurationFile) {
-
 
         $.ajax({
             url: dashboardConfigurationFile,
             dataType: 'json',
             cache: false,
             success: function configureDashboard(config) {
-                dashboardConfiguration = config;
-                instruments = createInstruments(config.instruments);
-                canvases = createInstrumentCanvases(instruments, config.layouts);
-                drawCanvases(canvases);
-                $(function () {
-                    $("canvas").draggable({
-                        grid: [ 10, 10 ],
-                        start: function () {
-                            var canvas = this;
-                            canvas.style.zIndex = 10;
-                        },
-                        stop: function () {
+                teamwall.app.instruments = createInstruments(config.instruments);
+                teamwall.app.canvases = createInstrumentCanvases(teamwall.app.instruments, config.layouts);
+                drawCanvases(teamwall.app.canvases);
+                makeItDraggable();
 
-                            var layouts = [];
-                            jQuery.each(canvases, function () {
-                                var canvas = this;
-                                var layout = {};
-                                layout.id = canvas.id;
-                                layout.top = canvas.offsetTop;
-                                layout.left = canvas.offsetLeft;
-                                layout.width = canvas.width;
-                                layout.height = canvas.height;
-                                layouts.push(layout);
-                                canvas.style.zIndex = 1;
-                            });
-
-                            var instrumentConfigurations = [];
-                            jQuery.each(instruments, function() {
-                               instrumentConfigurations.push(this.getConfiguration())
-                            });
-
-                            var teamwallConfiguration = {};
-                            teamwallConfiguration.layouts = layouts;
-                            teamwallConfiguration.instruments = instrumentConfigurations;
-
-                            console.log(JSON.stringify(teamwallConfiguration));
-                        }
-                    });
-                });
             },
             statusCode: {
                 404: error404
@@ -118,6 +79,7 @@ function TeamwallApp() {
                             top: layout.top,
                             left: layout.left
                         });
+                        $(canvas).addClass(teamwall.configuration.cssClassInstrument);
                         canvas.style.zIndex = 1;
                         canvases.push(canvas);
                     }
@@ -125,21 +87,75 @@ function TeamwallApp() {
             }
             return canvases;
         }
+    };
 
-        window.setInterval(updateInstruments, 1000);
+    this.activateConfigUI = function activateConfigUI() {
+        $("#configui").click(function () {
+            teamwall.app.configUiActive = !teamwall.app.configUiActive;
+            $("." + teamwall.configuration.cssClassInstrument).draggable("option", "disabled", !teamwall.app.configUiActive);
+            jQuery("." + teamwall.configuration.cssClassInstrument).toggleClass(teamwall.configuration.cssClassDraggable);
+        })
     };
 
     function updateInstruments() {
-        jQuery.each(instruments, function () {
+        jQuery.each(teamwall.app.instruments, function () {
             var instrument = this;
             $.ajax({
                 url: instrument.getConfiguration().url,
                 dataType: 'json',
                 cache: false,
-                success: function (data) {
-                    instrument.setValue(data);
-                }
+                success: updateInstrumentValue
             });
+
+            function updateInstrumentValue(data) {
+                instrument.setValue(data);
+            }
         });
     }
+
+    function makeItDraggable() {
+        $("." + teamwall.configuration.cssClassInstrument).draggable({
+            grid: [ 10, 10 ],
+            disabled: true,
+            start: startDragging,
+            stop: stopDragging
+        });
+
+        function stopDragging() {
+            var canvas = this;
+            canvas.style.zIndex = 1;
+
+            var layouts = [];
+            jQuery.each(teamwall.app.canvases, function () {
+                var canvas = this;
+                var layout = {};
+                layout.id = canvas.id;
+                layout.top = canvas.offsetTop;
+                layout.left = canvas.offsetLeft;
+                layout.width = canvas.width;
+                layout.height = canvas.height;
+                layouts.push(layout);
+            });
+
+            var instrumentConfigurations = [];
+            jQuery.each(teamwall.app.instruments, function () {
+                instrumentConfigurations.push(this.getConfiguration())
+            });
+
+            var teamwallConfiguration = {};
+            teamwallConfiguration.layouts = layouts;
+            teamwallConfiguration.instruments = instrumentConfigurations;
+
+            console.log(JSON.stringify(teamwallConfiguration));
+        }
+
+        function startDragging() {
+            var canvas = this;
+            canvas.style.zIndex = 10;
+        }
+    }
+
+
+    window.setInterval(updateInstruments, teamwall.configuration.instrumentUpdateInterval);
+
 }

@@ -7,6 +7,13 @@ body {
 
 canvas {
     -moz-box-shadow: 0 0 2px 2px #363535;
-    -webkit-box-shadow: 0 0 2px 2px#363535;
+    -webkit-box-shadow: 0 0 2px 2px #363535;
     box-shadow: 0 0 2px 2px #363535;
 }
+
+.draggable {
+    -moz-box-shadow: 0 0 2px 2px #4169e1;
+    -webkit-box-shadow: 0 0 2px 2px #4169e1;
+    box-shadow: 0 0 2px 2px #4169e1;
+}
+

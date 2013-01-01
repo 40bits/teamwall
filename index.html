@@ -6,10 +6,11 @@
     <script type="text/javascript" src="js/teamwall.js"></script>
     <script type="text/javascript" src="js/libs/jquery/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="js/libs/jquery-url-parser/purl.js"></script>
-    <script tyep="text/javascript" src="js/libs/jquery-ui/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-ui/jquery-ui-1.9.2.custom.min.js"></script>
     <script type="text/javascript" src="js/libs/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="js/tw.namespace.js"></script>
     <script type="text/javascript" src="js/tw.config.js"></script>
+    <script type="text/javascript" src="js/tw.app.js"></script>
     <script type="text/javascript" src="js/tw.render.js"></script>
     <script type="text/javascript" src="js/tw.math.js"></script>
     <script type="text/javascript" src="js/tw.date.js"></script>
@@ -26,11 +27,15 @@
                 dashboardFile = "teamwall.json";
             }
             teamwallApp.loadDashboard(dashboardFile);
+            teamwallApp.activateConfigUI();
         });
+
+
 
     </script>
 </head>
 <body>
+<a id="configui" href="#">o</a>
 </body>
 </html>
 

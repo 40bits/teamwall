@@ -3,9 +3,13 @@ teamwall.configuration = {
     colorWarning:"#de7424",
     colorBackground:"#373636",
     colorFailure:"#F40E2a",
-    font:"Doppio One",
     colorText:"#e1dbd8",
-    instrumentBackground:"#454545"
+    font:"Doppio One",
+    instrumentBackground:"#454545",
+    cssClassSelected : "selected",
+    cssClassInstrument : "instrument",
+    cssClassDraggable : "draggable",
+    instrumentUpdateInterval: 1000
 };
 
 
