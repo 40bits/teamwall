@@ -90,11 +90,11 @@ function TeamwallApp() {
     };
 
     this.activateConfigUI = function activateConfigUI() {
-        $(teamwall.configuration.domIdConfigButton).click(function () {
+        $(teamwall.configuration.cssSelectorConfigButton).click(function () {
             teamwall.app.configUiActive = !teamwall.app.configUiActive;
             $("." + teamwall.configuration.cssClassInstrument).draggable("option", "disabled", !teamwall.app.configUiActive);
             jQuery("." + teamwall.configuration.cssClassInstrument).toggleClass(teamwall.configuration.cssClassDraggable);
-            $(teamwall.configuration.cssClassConfigUi).toggle();
+            $(teamwall.configuration.cssSelectorConfigUi).toggle();
             if (!teamwall.app.configUiActive) {
                 $('.ui-state-disabled').removeClass('ui-state-disabled');
             }

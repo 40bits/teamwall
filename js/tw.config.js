@@ -11,14 +11,16 @@ teamwall.configuration = {
     cssClassSelected: "selected",
     cssClassInstrument: "tw-instrument",
     cssClassDraggable: "draggable",
-    domIdConfigButton: "#configbutton",
-    cssClassConfigUi: ".configui",
-    domIdConfigBar: "#configbar",
+    cssClassAboutToBeDeleted: "instrumentHoverTrash",
+
+    cssSelectorConfigUi: ".configui",
+    cssSelectorConfigButton: "#configbutton",
+    cssSelectorConfigBar: "#configbar",
     cssSelectorTrashCan: "#configui_trashCan",
     cssSelectorReloadDashboard : "#configui_reloadDashboard",
     cssSelectorSaveDashboard: "#configui_saveDashboard",
-    cssClassAboutToBeDeleted: "instrumentHoverTrash",
     cssSelectorNewDashboardConfigDialog: "#dialog-newdashboardconfig",
+
     instrumentUpdateInterval: 1000
 };
 
