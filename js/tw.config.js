@@ -17,7 +17,7 @@ teamwall.configuration = {
     cssSelectorConfigButton: "#configbutton",
     cssSelectorConfigBar: "#configbar",
     cssSelectorTrashCan: "#configui_trashCan",
-    cssSelectorReloadDashboard : "#configui_reloadDashboard",
+    cssSelectorReloadDashboard: "#configui_reloadDashboard",
     cssSelectorSaveDashboard: "#configui_saveDashboard",
     cssSelectorNewDashboardConfigDialog: "#dialog-newdashboardconfig",
 

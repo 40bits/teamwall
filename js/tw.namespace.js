@@ -1,6 +1,7 @@
 var teamwall = {
     configuration: {},
     app: {},
+    ui: {},
     render: {},
     math: {},
     date: {},
