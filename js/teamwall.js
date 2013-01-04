@@ -106,6 +106,10 @@ function TeamwallApp() {
                 deleteInstrument(ui.draggable.attr('id'));
             }});
 
+        $(teamwall.configuration.cssSelectorReloadDashboard).click(function () {
+            window.location.reload();
+        });
+
         $(teamwall.configuration.cssSelectorSaveDashboard).click(function () {
             var layouts = [];
             jQuery.each(teamwall.app.canvases, function () {
