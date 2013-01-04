@@ -22,6 +22,10 @@ It looks like this:
 
 Checkout the [Changes file](teamwall/blob/master/Changes.markdown).
 
+**GUI**
+
+Clicking on the Gear in the lower left corner will bring up a management gui which allows some basic operations to manage the dashboard (work in progress).
+This all works also in tablets.
 
 # Get started #
 

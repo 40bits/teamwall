@@ -1,3 +1,7 @@
+## 2013-01-04
+
+Some more work on managing the instruments on the screen. The new config gui can be shown and has the elements: Drag'n'Drop to delete, reload and showing the new config in an overlay.
+
 ## 2013-01-01
 
 Clicking on the Settings icons in the lower right corner now enables drag mode.
