@@ -4,8 +4,10 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <link rel="apple-touch-startup-image" href="img/startup-image.png"/>
 
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/jqueryui-teamwall/jquery-ui-1.9.2.custom.min.css"/>
     <link href='fonts/stylesheet.css' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="js/teamwall.js"></script>
     <script type="text/javascript" src="js/libs/jquery/jquery-1.8.2.min.js"></script>
@@ -35,9 +37,24 @@
         });
     </script>
     <title>Teamwall</title>
+
 </head>
 <body>
-<a id="configui" href="#"><img src="img/wrench.png"/></a>
+
+<a id="configbutton" href="#"><img alt="Settings" src="img/gear.png"/></a>
+
+
+<div id="configbar" class="configui">
+    <div id="configui_addInstrument" class="configUiElement">Add Instrument</div>
+    <div id="configui_arrangeInstruments" class="configUiElement">Arrange Instruments</div>
+    <div id="configui_reloadInstruments" class="configUiElement">Reload Instruments</div>
+    <div id="configui_saveDashboard" class="configUiElement">Save Dashboard</div>
+    <div id="configui_trashCan" class="configUiElement">Drop here to delete Instrument</div>
+</div>
+
+<div id="dialog-newdashboardconfig" title="New Dashboard configuration">
+</div>
+
 </body>
 </html>
 
