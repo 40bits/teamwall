@@ -7,9 +7,6 @@ body {
     height: 100%
 }
 
-canvas {
-}
-
 .draggable {
     -moz-box-shadow: 0 0 2px 2px #363535;
     -webkit-box-shadow: 0 0 2px 2px #363535;
@@ -31,6 +28,13 @@ canvas {
     margin: 10px;
     z-index: 100;
     background-color: #ff4500;
+    position: relative;
+}
+
+.configUiElement img {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
 }
 
 #configbar {
@@ -43,7 +47,6 @@ canvas {
 .configui {
     z-index: 100;
 }
-
 
 .instrumentHoverTrash {
     -moz-box-shadow: 0 0 8px 8px #ff4500;
