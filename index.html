@@ -1,15 +1,23 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <link rel="apple-touch-startup-image" href="img/startup-image.png"/>
+
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/jqueryui-teamwall/jquery-ui-1.9.2.custom.min.css"/>
     <link href='fonts/stylesheet.css' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="js/teamwall.js"></script>
     <script type="text/javascript" src="js/libs/jquery/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="js/libs/jquery-url-parser/purl.js"></script>
-    <script tyep="text/javascript" src="js/libs/jquery-ui/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-ui/jquery-ui-1.9.2.custom.min.js"></script>
     <script type="text/javascript" src="js/libs/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="js/tw.namespace.js"></script>
     <script type="text/javascript" src="js/tw.config.js"></script>
+    <script type="text/javascript" src="js/tw.app.js"></script>
+    <script type="text/javascript" src="js/tw.ui.js"></script>
     <script type="text/javascript" src="js/tw.render.js"></script>
     <script type="text/javascript" src="js/tw.math.js"></script>
     <script type="text/javascript" src="js/tw.date.js"></script>
@@ -26,11 +34,27 @@
                 dashboardFile = "teamwall.json";
             }
             teamwallApp.loadDashboard(dashboardFile);
+            teamwall.ui.init();
         });
-
     </script>
+    <title>Teamwall</title>
+
 </head>
 <body>
+
+<a id="configbutton" href="#"><img alt="Settings" src="img/gear.png"/></a>
+
+<div id="configbar" class="configui">
+    <div id="configui_addInstrument" class="configUiElement">Add Instrument (not working)</div>
+    <div id="configui_arrangeInstruments" class="configUiElement">Arrange Instruments (not working)</div>
+    <div id="configui_reloadDashboard" class="configUiElement">Reload Dashboard</div>
+    <div id="configui_saveDashboard" class="configUiElement">Save Dashboard</div>
+    <div id="configui_trashCan" class="configUiElement">Drop here to delete Instrument</div>
+</div>
+
+<div id="dialog-newdashboardconfig" title="New Dashboard configuration">
+</div>
+
 </body>
 </html>
 

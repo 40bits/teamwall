@@ -4,13 +4,14 @@ __The developer's dashboard.__
 
 This is the early stages Teamwall project.
 
-Teamwall is a small dashboard the a team that develops software.
+The idea grew over some years to display live stats from our code, live servers and so on. So here it is ;-)
 
-**Basic idea**
+##Basic idea##
 
+Teamwall is a simple dashboard for a team. Run this on a monitor in the team room and make it visible to everybody.
 Show the developer the information he needs to know how the code is doing.
 
-**What can that be**
+##What can it be ?##
 
 Code Coverage, Live stats from servers, Incoming bugs etc.
 
@@ -18,10 +19,18 @@ It looks like this:
 
 ![Demo Screen](https://raw.github.com/40bits/teamwall/master/documentation/images/demo_screen.png "Demo Screen")
 
-**Changes**
+##Changes##
 
 Checkout the [Changes file](teamwall/blob/master/Changes.markdown).
 
+##GUI##
+
+Clicking on the Gear in the lower left corner will bring up a management gui which allows some basic operations to manage the dashboard (work in progress) and you can move the instruments around.
+This all works also in tablets.
+
+# Feedback #
+
+Drop me a line on [twitter](https://twitter.com/owehrens).
 
 # Get started #
 

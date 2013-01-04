@@ -1,11 +1,27 @@
 teamwall.configuration = {
-    colorOk:"#6b9c28",
-    colorWarning:"#de7424",
-    colorBackground:"#373636",
-    colorFailure:"#F40E2a",
-    font:"Doppio One",
-    colorText:"#e1dbd8",
-    instrumentBackground:"#454545"
+
+    colorOk: "#6b9c28",
+    colorWarning: "#fdd749",
+    colorBackground: "#373636",
+    colorFailure: "#F40E2a",
+    colorText: "#e1dbd8",
+    font: "Doppio One",
+    instrumentBackground: "#454545",
+
+    cssClassSelected: "selected",
+    cssClassInstrument: "tw-instrument",
+    cssClassDraggable: "draggable",
+    cssClassAboutToBeDeleted: "instrumentHoverTrash",
+
+    cssSelectorConfigUi: ".configui",
+    cssSelectorConfigButton: "#configbutton",
+    cssSelectorConfigBar: "#configbar",
+    cssSelectorTrashCan: "#configui_trashCan",
+    cssSelectorReloadDashboard: "#configui_reloadDashboard",
+    cssSelectorSaveDashboard: "#configui_saveDashboard",
+    cssSelectorNewDashboardConfigDialog: "#dialog-newdashboardconfig",
+
+    instrumentUpdateInterval: 1000
 };
 
 

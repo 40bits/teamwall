@@ -3,10 +3,54 @@ body {
     color: white;
     font-family: 'Doppio One', sans-serif;
     position: absolute;
+    overflow: hidden;
+    height: 100%
 }
 
-canvas {
+.draggable {
     -moz-box-shadow: 0 0 2px 2px #363535;
-    -webkit-box-shadow: 0 0 2px 2px#363535;
+    -webkit-box-shadow: 0 0 2px 2px #363535;
     box-shadow: 0 0 2px 2px #363535;
+}
+
+#configbutton {
+    position: fixed;
+    right: 20px;
+    bottom: 35px;
+    z-index: 100;
+}
+
+.configUiElement {
+    width: 100px;
+    height: 100px;
+    padding: 0.5em;
+    float: left;
+    margin: 10px;
+    z-index: 100;
+    background-color: #ff4500;
+    position: relative;
+}
+
+.configUiElement img {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+#configbar {
+    position: fixed;
+    right: 140px;
+    bottom: 20px;
+    display: none;
+}
+
+.configui {
+    z-index: 100;
+}
+
+.instrumentHoverTrash {
+    -moz-box-shadow: 0 0 8px 8px #ff4500;
+    -webkit-box-shadow: 0 0 8px 8px #ff4500;
+    box-shadow: 0 0 8px 8px #ff4500;
+    background-color: #8b0000;
 }
