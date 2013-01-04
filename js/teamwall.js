@@ -87,7 +87,44 @@ function TeamwallApp() {
             }
             return canvases;
         }
+
+        function makeItDraggable() {
+            $("." + teamwall.configuration.cssClassInstrument).draggable({
+                grid: [ 10, 10 ],
+                disabled: true,
+                start: startDragging,
+                stop: stopDragging
+            });
+
+            function stopDragging() {
+                var canvas = this;
+                canvas.style.zIndex = 1;
+            }
+
+            function startDragging() {
+                var canvas = this;
+                canvas.style.zIndex = 10;
+            }
+        }
+
     };
+
+    function updateInstruments() {
+        jQuery.each(teamwall.app.instruments, function () {
+            var instrument = this;
+            $.ajax({
+                url: instrument.getConfiguration().url,
+                dataType: 'json',
+                cache: false,
+                success: updateInstrumentValue
+            });
+
+            function updateInstrumentValue(data) {
+                instrument.setValue(data);
+            }
+        });
+    }
+
 
     this.activateConfigUI = function activateConfigUI() {
         $(teamwall.configuration.cssSelectorConfigButton).click(function () {
@@ -146,42 +183,6 @@ function TeamwallApp() {
             });
         })
     };
-
-    function updateInstruments() {
-        jQuery.each(teamwall.app.instruments, function () {
-            var instrument = this;
-            $.ajax({
-                url: instrument.getConfiguration().url,
-                dataType: 'json',
-                cache: false,
-                success: updateInstrumentValue
-            });
-
-            function updateInstrumentValue(data) {
-                instrument.setValue(data);
-            }
-        });
-    }
-
-    function makeItDraggable() {
-        $("." + teamwall.configuration.cssClassInstrument).draggable({
-            grid: [ 10, 10 ],
-            disabled: true,
-            start: startDragging,
-            stop: stopDragging
-        });
-
-        function stopDragging() {
-            var canvas = this;
-            canvas.style.zIndex = 1;
-        }
-
-        function startDragging() {
-            var canvas = this;
-            canvas.style.zIndex = 10;
-        }
-    }
-
     function deleteInstrument(id) {
         function deleteFromDom() {
             jQuery.each(teamwall.app.canvases, function () {
@@ -193,24 +194,24 @@ function TeamwallApp() {
 
         function deleteFromCanvasArray() {
             var indexOfElement = -1;
-            for (var count = 0; count < teamwall.app.canvases.length ; count++) {
+            for (var count = 0; count < teamwall.app.canvases.length; count++) {
                 if (jQuery(teamwall.app.canvases[count]).attr('id') == id) {
                     indexOfElement = count;
                 }
             }
-            if (indexOfElement > -1 ) {
+            if (indexOfElement > -1) {
                 teamwall.app.canvases.splice(indexOfElement, 1);
             }
         }
 
         function deleteFromInstrumentArray() {
             var indexOfElement = -1;
-            for (var count = 0; count < teamwall.app.instruments.length ; count++) {
+            for (var count = 0; count < teamwall.app.instruments.length; count++) {
                 if (teamwall.app.instruments[count].getConfiguration().id == id) {
                     indexOfElement = count;
                 }
             }
-            if (indexOfElement > -1 ) {
+            if (indexOfElement > -1) {
                 teamwall.app.instruments.splice(indexOfElement, 1);
             }
         }
