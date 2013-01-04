@@ -27,6 +27,10 @@ Checkout the [Changes file](teamwall/blob/master/Changes.markdown).
 Clicking on the Gear in the lower left corner will bring up a management gui which allows some basic operations to manage the dashboard (work in progress).
 This all works also in tablets.
 
+# Feedback #
+
+Drop me a line on [twitter](https://twitter.com/owehrens).
+
 # Get started #
 
 Put everything in a directory served by a web server. You can also run
