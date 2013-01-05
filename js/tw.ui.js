@@ -28,34 +28,8 @@ teamwall.ui.init = function init() {
             })
         }
 
-        function deleteFromCanvasArray() {
-            var indexOfElement = -1;
-            for (var count = 0; count < teamwall.app.canvases.length; count++) {
-                if (jQuery(teamwall.app.canvases[count]).attr('id') == id) {
-                    indexOfElement = count;
-                }
-            }
-            if (indexOfElement > -1) {
-                teamwall.app.canvases.splice(indexOfElement, 1);
-            }
-        }
-
-        function deleteFromInstrumentArray() {
-            var indexOfElement = -1;
-            for (var count = 0; count < teamwall.app.instruments.length; count++) {
-                if (teamwall.app.instruments[count].getConfiguration().id == id) {
-                    indexOfElement = count;
-                }
-            }
-            if (indexOfElement > -1) {
-                teamwall.app.instruments.splice(indexOfElement, 1);
-            }
-        }
-
         deleteFromDom();
-        deleteFromCanvasArray();
-        deleteFromInstrumentArray();
-
+        teamwall.app.deleteInstrument(id);
     }
 
     // reload board from server
@@ -65,29 +39,7 @@ teamwall.ui.init = function init() {
 
     // show dashboard config
     $(teamwall.configuration.cssSelectorSaveDashboard).click(function () {
-        var layouts = [];
-        jQuery.each(teamwall.app.canvases, function () {
-            var canvas = this;
-            var layout = {};
-            layout.id = canvas.id;
-            layout.top = canvas.offsetTop;
-            layout.left = canvas.offsetLeft;
-            layout.width = canvas.width;
-            layout.height = canvas.height;
-            layouts.push(layout);
-        });
-
-        var instrumentConfigurations = [];
-        jQuery.each(teamwall.app.instruments, function () {
-            instrumentConfigurations.push(this.getConfiguration())
-        });
-
-        var teamwallConfiguration = {};
-        teamwallConfiguration.layouts = layouts;
-        teamwallConfiguration.instruments = instrumentConfigurations;
-
-        $(teamwall.configuration.cssSelectorNewDashboardConfigDialog).text(JSON.stringify(teamwallConfiguration));
-
+        $(teamwall.configuration.cssSelectorNewDashboardConfigDialog).text(teamwall.app.getConfiguration());
         $(teamwall.configuration.cssSelectorNewDashboardConfigDialog).dialog({
             modal: false,
             minWidth: 600,
