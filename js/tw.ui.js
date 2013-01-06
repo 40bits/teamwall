@@ -1,10 +1,34 @@
 teamwall.ui.init = function init() {
 
-    $(teamwall.configuration.cssSelectorConfigButton).click(showOrHideConfigGui());
+    $(teamwall.configuration.cssSelectorConfigButton).click(function showOrHideConfigGui() {
+            teamwall.app.configUiActive = !teamwall.app.configUiActive;
+            $("." + teamwall.configuration.cssClassInstrument).draggable("option", "disabled", !teamwall.app.configUiActive);
+            jQuery("." + teamwall.configuration.cssClassInstrument).toggleClass(teamwall.configuration.cssClassDraggable);
+            $(teamwall.configuration.cssSelectorConfigUi).toggle();
+            if (!teamwall.app.configUiActive) {
+                $('.ui-state-disabled').removeClass('ui-state-disabled');
+            }
+        }
+    );
 
-    $(teamwall.configuration.cssSelectorSaveDashboard).click(saveDashboard());
+    $(teamwall.configuration.cssSelectorSaveDashboard).click(function saveDashboard() {
+            $(teamwall.configuration.cssSelectorNewDashboardConfigDialog).text(teamwall.app.getConfiguration());
+            $(teamwall.configuration.cssSelectorNewDashboardConfigDialog).dialog({
+                modal: false,
+                minWidth: 600,
+                resizable: false,
+                buttons: {
+                    Close: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+    );
 
-    $(teamwall.configuration.cssSelectorReloadDashboard).click(reloadDashboardFromServer());
+    $(teamwall.configuration.cssSelectorReloadDashboard).click(function reloadDashboardFromServer() {
+        window.location.reload();
+    });
 
     $(teamwall.configuration.cssSelectorTrashCan).droppable({
         hoverClass: teamwall.configuration.cssClassAboutToBeDeleted,
@@ -25,35 +49,6 @@ teamwall.ui.init = function init() {
 
         deleteFromDom();
         teamwall.app.deleteInstrument(id);
-    }
-
-
-    function reloadDashboardFromServer() {
-        window.location.reload();
-    }
-
-    function showOrHideConfigGui() {
-        teamwall.app.configUiActive = !teamwall.app.configUiActive;
-        $("." + teamwall.configuration.cssClassInstrument).draggable("option", "disabled", !teamwall.app.configUiActive);
-        jQuery("." + teamwall.configuration.cssClassInstrument).toggleClass(teamwall.configuration.cssClassDraggable);
-        $(teamwall.configuration.cssSelectorConfigUi).toggle();
-        if (!teamwall.app.configUiActive) {
-            $('.ui-state-disabled').removeClass('ui-state-disabled');
-        }
-    }
-
-    function saveDashboard() {
-        $(teamwall.configuration.cssSelectorNewDashboardConfigDialog).text(teamwall.app.getConfiguration());
-        $(teamwall.configuration.cssSelectorNewDashboardConfigDialog).dialog({
-            modal: false,
-            minWidth: 600,
-            resizable: false,
-            buttons: {
-                Close: function () {
-                    $(this).dialog("close");
-                }
-            }
-        });
     }
 
 };
