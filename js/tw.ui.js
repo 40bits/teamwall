@@ -26,6 +26,19 @@ teamwall.ui.init = function init() {
         }
     );
 
+    $(teamwall.configuration.cssSelectorSnapToGrid).click(function snapToGrid() {
+        jQuery.each(teamwall.app.canvases, function () {
+            var canvas = this;
+            var left = canvas.offsetLeft;
+            var top = canvas.offsetTop;
+
+            $(canvas).animate({
+                top: Math.round(top / 10) * 10,
+                left: Math.round(left / 10) * 10
+            });
+        })
+    });
+
     $(teamwall.configuration.cssSelectorReloadDashboard).click(function reloadDashboardFromServer() {
         window.location.reload();
     });
@@ -50,5 +63,6 @@ teamwall.ui.init = function init() {
         deleteFromDom();
         teamwall.app.deleteInstrument(id);
     }
+
 
 };

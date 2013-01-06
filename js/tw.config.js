@@ -20,6 +20,7 @@ teamwall.configuration = {
     cssSelectorReloadDashboard: "#configui_reloadDashboard",
     cssSelectorSaveDashboard: "#configui_saveDashboard",
     cssSelectorNewDashboardConfigDialog: "#dialog-newdashboardconfig",
+    cssSelectorSnapToGrid: "#configui_snapToGrid",
 
     instrumentUpdateInterval: 1000
 };
