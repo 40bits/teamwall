@@ -297,6 +297,7 @@ Example:
 | higher_is_better | The higher number is good and will be rendered as success
 | unit | Which unit should be rendered (not yet implemented)|
 | show_trend| True or false is the trend should be rendered|
+| unit | The unit will be displayed |
 
 Example:
 
@@ -308,7 +309,7 @@ Example:
 	 "threshold_value":"5",
  	 "decimal_places":"0",
  	 "higher_is_better":false,
-	 "unit":"#",
+	 "unit":"in ms",
 	 "show_trend": true
 	}
 

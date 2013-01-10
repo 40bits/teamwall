@@ -7,7 +7,7 @@
  "threshold_value":"5",
  "decimal_places":"0",
  "higher_is_better":false,
- "unit":"#",
+ "unit":"ms",
  "show_trend": true
  }
  */
@@ -46,14 +46,19 @@ teamwall.instrument.number = function (configuration) {
             var valueToBeDisplayed = teamwall.math.round(value, instrumentConfiguration.decimal_places);
             teamwall.render.writeText(context, valueToBeDisplayed, centerX, centerY, getFontWithRightSize(canvas, context, valueToBeDisplayed), teamwall.configuration.colorText);
             showTrend(trend, context, canvas);
+            drawUnit(instrumentConfiguration.unit, context, canvas, centerX);
+
             if (helpLines) {
                 drawHelpLines(canvas, context);
             }
 
-            if (instrumentConfiguration.show_age && date != undefined) {
-                teamwall.render.writeText(context, "5 h ago", centerX, teamwall.render.yPointForDrawing2ndHeading(canvas), teamwall.render.fontFor2ndHeader(canvas), teamwall.configuration.colorBackground);
-            }
+//            if (instrumentConfiguration.show_age && date != undefined) {
+//                teamwall.render.writeText(context, "5 h ago", centerX, teamwall.render.yPointForDrawing2ndHeading(canvas), teamwall.render.fontFor2ndHeader(canvas), teamwall.configuration.colorBackground);
+//            }
+        }
 
+        function drawUnit(unit, context, canvas, centerX) {
+            teamwall.render.writeText(context, unit, centerX, teamwall.render.yPointForDrawing2ndHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
         }
 
         function showThreshold(value, threshold, context, centerX, canvas) {
@@ -100,7 +105,7 @@ teamwall.instrument.number = function (configuration) {
 
         function getFontWithRightSize(canvas, context, value) {
             var maxWidth = canvas.width * 0.8;
-            var fontFactor = 0.6;
+            var fontFactor = 0.5;
             var font = canvas.height * fontFactor + "pt " + teamwall.configuration.font;
             context.font = font;
             var dimension = context.measureText(value);

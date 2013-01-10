@@ -39,7 +39,7 @@ body {
 
 #configbar {
     position: fixed;
-    right: 140px;
+    right: 60px;
     bottom: 20px;
     display: none;
 }

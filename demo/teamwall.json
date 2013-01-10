@@ -78,10 +78,13 @@
     {
         "id": "stargazers",
         "instrument": "number",
-        "title": "Stargazers",
+        "title": "Response time last hour",
         "url": "data/stargazers.json",
         "decimal_places": "0",
-        "higher_is_better": true
+        "unit": "in ms",
+        "show_trend" : true,
+        "threshold_value":"300",
+        "higher_is_better": false
     },
     {
         "id": "xs",
