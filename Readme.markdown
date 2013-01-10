@@ -295,9 +295,8 @@ Example:
 | threshold_value | If the value from the data url is below the threshold the display will be rendered as failure |
 | decimal_places | How many decimal places should be rendered|
 | higher_is_better | The higher number is good and will be rendered as success
-| unit | Which unit should be rendered (not yet implemented)|
+| unit | Which unit should be rendered |
 | show_trend| True or false is the trend should be rendered|
-| unit | The unit will be displayed |
 
 Example:
 
