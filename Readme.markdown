@@ -224,12 +224,27 @@ Example:
 
 This instrument is used to monitor multiple build chains. If one team has more than one product (and therefore chain) it
 can take up a lot of screen estate. If you have the need for multiple chains, this instrument is for you.
+If needed, it can play sounds if any of the build chains turn to failure. This sound will be played at a defined interval. If the build turns to green from red another sound can be played.
+
+
+| Attribute | Definition |
+|-----------|------------|
+| noAlertText | Text to be displayed, if all builds are successful, overrides default text |
+| sounds.failureSound | Sound to be played when one of the status fields is FAILURE |
+| sounds.failureInterval | Interval in seconds at which the sound should be play if the build is still red |
+| sounds.successSound | Sound to be played if status changes to all success |
 
 Example:
 
 	{
         "instrument":"buildalert",
         "id":"buildalert",
+        "noAlertText": "We are doing it live.",
+        "sounds": {
+            "failureSound": "/sounds/tos-redalert.mp3",
+            "failureInterval": "1800",
+            "successSound": "/sounds/smb3_power-up.wav"
+        },
         "url":"data/buildalert.json"
     }
 

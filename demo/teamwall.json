@@ -76,17 +76,6 @@
         "show_trend": true
     },
     {
-        "id": "stargazers",
-        "instrument": "number",
-        "title": "Response time last hour",
-        "url": "data/stargazers.json",
-        "decimal_places": "0",
-        "unit": "in ms",
-        "show_trend" : true,
-        "threshold_value":"300",
-        "higher_is_better": false
-    },
-    {
         "id": "xs",
         "instrument": "percent",
         "title": "Structural Complexity",
@@ -103,6 +92,13 @@
     {
         "instrument": "buildalert",
         "id": "buildalert",
+"noAlertText": "We are doing it live.",
+        "sounds": {
+            "failureSound": "/sounds/tos-redalert.mp3",
+            "failureInterval": "1800",
+            "successSound": "/sounds/smb3_power-up.wav"
+        },
+
         "url": "data/buildalert.json"
     }
 ]}
