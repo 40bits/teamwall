@@ -27,6 +27,10 @@ teamwall.instrument.number = function (configuration) {
             drawInstrument(value, data.threshold_value, data.trend, data.date);
         };
 
+        this.getInstrumentDrawType = function () {
+            return "canvas";
+        }
+
         this.getConfiguration = function () {
             return instrumentConfiguration;
         };

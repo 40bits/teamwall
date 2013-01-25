@@ -358,7 +358,9 @@ Example:
 
 This instrument will simply show the text given to it. It tries to fill the maximum space and auto computes the best font size so everything fits into the instrument space.
 
-No extra configuration besides id and url.
+| Attribute | Definition |
+|-----------|------------|
+| fontSize	|Size of the font |
 
 #### Data Format ####
 

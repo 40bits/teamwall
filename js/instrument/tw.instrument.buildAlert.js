@@ -21,6 +21,10 @@ teamwall.instrument.buildAlert = function (configuration) {
             drawInstrument(newValue);
         };
 
+        this.getInstrumentDrawType = function () {
+            return "canvas";
+        }
+
         function drawInstrument(value) {
 
             var canvas = document.getElementById(instrumentConfiguration.id);

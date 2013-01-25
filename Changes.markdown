@@ -1,3 +1,8 @@
+## 2013-01-25
+
+Instruments now can be rendered not only as <canvas> element but as well as any tag. The text area instrument was converted to be rendered as <div>.
+Whatever the instruments needs, teamwall will render it. The instrument has to take care that it will do the right stuff.
+
 ## 2013-01-21
 
 To remind that the build is red, the buildAlert command can now play sounds at an interval when the build chain is broken.

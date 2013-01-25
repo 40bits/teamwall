@@ -13,6 +13,10 @@ teamwall.instrument.linechart = function (configuration) {
             return instrumentConfiguration;
         };
 
+        this.getInstrumentDrawType = function () {
+            return "canvas";
+        }
+
         function drawInstrument(data) {
             var canvas = document.getElementById(instrumentConfiguration.id);
             var context = canvas.getContext("2d");

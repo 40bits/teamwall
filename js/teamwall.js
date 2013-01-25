@@ -70,14 +70,18 @@ function TeamwallApp() {
                 for (var j = 0; j < layoutConfiguration.length; j++) {
                     var layout = layoutConfiguration[j];
                     if (layout.id == instrument.getConfiguration().id) {
-                        var canvas = document.createElement("canvas");
+                        var typeToDraw = instrument.getInstrumentDrawType();
+                        var canvas = document.createElement(typeToDraw);
                         canvas.id = layout.id;
                         canvas.width = layout.width ? layout.width : DEFAULT_WIDTH;
                         canvas.height = layout.height ? layout.height : DEFAULT_HEIGHT;
+                        var position = typeToDraw == 'canvas' ? 'absolute' : 'relative';
                         $(canvas).css({
-                            position: "absolute",
+                            position: position,
                             top: layout.top,
-                            left: layout.left
+                            left: layout.left,
+                            width: canvas.width,
+                            height: canvas.height
                         });
                         $(canvas).addClass(teamwall.configuration.cssClassInstrument);
                         canvas.style.zIndex = 1;
