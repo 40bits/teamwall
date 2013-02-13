@@ -224,12 +224,27 @@ Example:
 
 This instrument is used to monitor multiple build chains. If one team has more than one product (and therefore chain) it
 can take up a lot of screen estate. If you have the need for multiple chains, this instrument is for you.
+If needed, it can play sounds if any of the build chains turn to failure. This sound will be played at a defined interval. If the build turns to green from red another sound can be played.
+
+
+| Attribute | Definition |
+|-----------|------------|
+| noAlertText | Text to be displayed, if all builds are successful, overrides default text |
+| sounds.failureSound | Sound to be played when one of the status fields is FAILURE |
+| sounds.failureInterval | Interval in seconds at which the sound should be play if the build is still red |
+| sounds.successSound | Sound to be played if status changes to all success |
 
 Example:
 
 	{
         "instrument":"buildalert",
         "id":"buildalert",
+        "noAlertText": "We are doing it live.",
+        "sounds": {
+            "failureSound": "/sounds/tos-redalert.mp3",
+            "failureInterval": "1800",
+            "successSound": "/sounds/smb3_power-up.wav"
+        },
         "url":"data/buildalert.json"
     }
 
@@ -295,7 +310,7 @@ Example:
 | threshold_value | If the value from the data url is below the threshold the display will be rendered as failure |
 | decimal_places | How many decimal places should be rendered|
 | higher_is_better | The higher number is good and will be rendered as success
-| unit | Which unit should be rendered (not yet implemented)|
+| unit | Which unit should be rendered |
 | show_trend| True or false is the trend should be rendered|
 
 Example:
@@ -308,7 +323,7 @@ Example:
 	 "threshold_value":"5",
  	 "decimal_places":"0",
  	 "higher_is_better":false,
-	 "unit":"#",
+	 "unit":"in ms",
 	 "show_trend": true
 	}
 
@@ -343,7 +358,9 @@ Example:
 
 This instrument will simply show the text given to it. It tries to fill the maximum space and auto computes the best font size so everything fits into the instrument space.
 
-No extra configuration besides id and url.
+| Attribute | Definition |
+|-----------|------------|
+| fontSize	|Size of the font |
 
 #### Data Format ####
 

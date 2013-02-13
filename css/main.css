@@ -2,7 +2,7 @@ body {
     background: #3f4040;
     color: white;
     font-family: 'Doppio One', sans-serif;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     height: 100%
 }
@@ -39,7 +39,7 @@ body {
 
 #configbar {
     position: fixed;
-    right: 140px;
+    right: 60px;
     bottom: 20px;
     display: none;
 }
@@ -53,4 +53,9 @@ body {
     -webkit-box-shadow: 0 0 8px 8px #ff4500;
     box-shadow: 0 0 8px 8px #ff4500;
     background-color: #8b0000;
+}
+
+.tw-instrument {
+    overflow: hidden;
+    text-overflow: hidden;
 }

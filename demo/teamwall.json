@@ -76,14 +76,6 @@
         "show_trend": true
     },
     {
-        "id": "stargazers",
-        "instrument": "number",
-        "title": "Stargazers",
-        "url": "data/stargazers.json",
-        "decimal_places": "0",
-        "higher_is_better": true
-    },
-    {
         "id": "xs",
         "instrument": "percent",
         "title": "Structural Complexity",
@@ -95,11 +87,18 @@
     {
         "id": "text",
         "instrument": "textarea",
-        "url": "data/textarea.json"
+        "url": "data/textarea.json",
+        "fontSize": "3em"
     },
     {
         "instrument": "buildalert",
         "id": "buildalert",
+        "noAlertText": "We are doing it live.",
+        "sounds": {
+            "failureSound": "/sounds/tos-redalert.mp3",
+            "failureInterval": "1800",
+            "successSound": "/sounds/smb3_power-up.wav"
+        },
         "url": "data/buildalert.json"
     }
 ]}

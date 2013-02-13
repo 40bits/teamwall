@@ -4,7 +4,7 @@
  - needs to be registered in js/tw.namespace.js under instrument to match the defined namespace here
  - to be used, needs to be added in teamwall.js
  - this.setValue and this.getConfiguration are required and will be called, without them this
-   is most likely going to fail
+ is most likely going to fail
  - add the new instrument to the javascript imports into index.html
  - have fun
  */
@@ -24,6 +24,11 @@ teamwall.instrument.template = function (configuration) {
         this.getConfiguration = function () {
             return instrumentConfiguration;
         };
+
+        // required
+        this.getInstrumentDrawType = function () {
+            return "canvas";
+        }
 
         function drawInstrument(data) {
             var canvas = document.getElementById(instrumentConfiguration.id);

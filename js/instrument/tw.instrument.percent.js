@@ -23,6 +23,10 @@ teamwall.instrument.percent = function (configuration) {
             currentValue = targetValue;
         };
 
+        this.getInstrumentDrawType = function () {
+            return "canvas";
+        }
+
         this.getConfiguration = function () {
             return instrumentConfiguration;
         };
