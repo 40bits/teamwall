@@ -384,7 +384,7 @@ If issue count is zero, it will be displayed with a green background.
 
 | Attribute | Definition |
 |-----------|------------|
-| title	|Title of the instrument |
+| title	|Title of the instrument. Total issue count will be prefixed. |
 | priorityColors | Should correspond to the length of `issueCountsOrderedByPrio`. Highest priority color is left. |
 
 Example:
