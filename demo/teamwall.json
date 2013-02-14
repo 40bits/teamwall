@@ -110,8 +110,8 @@
     },
     {
         "id": "issuecount",
-        "title": "Issues",
         "instrument": "issuecount",
+        "title": "Issues",
         "priorityColors" : [ "#ff0000", "#FF5A36", "#FF7F00", "#FFA812" ],
         "url": "data/issuecount.json"
     }

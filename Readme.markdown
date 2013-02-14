@@ -375,6 +375,43 @@ Example:
 ![TextArea](https://raw.github.com/40bits/teamwall/master/documentation/images/textarea.png "Text Area")	
 
 
+### IssueCount ###
+
+**Instrument name :** issuecount
+
+This instrument will show the given issue count. Colors can be define with `priorityColors`.
+If issue count is zero, it will be displayed with a green background.
+
+| Attribute | Definition |
+|-----------|------------|
+| title	|Title of the instrument |
+| priorityColors | Should correspond to the length of `issueCountsOrderedByPrio`. Highest priority color is left. |
+
+Example:
+
+	{
+	 "instrument":"issuecount",
+	 "id":"issuecount",
+	 "title":"Issues",
+	 "priorityColors" : [ "#ff0000", "#FF5A36", "#FF7F00", "#FFA812" ],
+	 "url":"data/issuecount.json"
+	}
+
+#### Data Format ####
+
+| Attribute | Definition |
+|-----------|------------|
+| issueCountsOrderedByPrio     | Array with issueCounts. Hightest prio issue count is first element |
+
+Example:
+
+	{
+        "issueCountsOrderedByPrio" : [2, 1, 16, 11]
+    }
+
+TODO screenshots
+
+
 # Layout #
 
 The layout is defined the the `layouts` section of the configuration file.
