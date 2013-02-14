@@ -47,6 +47,13 @@
         "left": 628,
         "width": 200,
         "height": 200
+    },
+    {
+        "id": "issuecount",
+        "top": 420,
+        "left": 640,
+        "width": 150,
+        "height": 300
     }
 ], "instruments": [
     {
@@ -100,5 +107,12 @@
             "successSound": "/sounds/smb3_power-up.wav"
         },
         "url": "data/buildalert.json"
+    },
+    {
+        "id": "issuecount",
+        "title": "Issues",
+        "instrument": "issuecount",
+        "priorityColors" : [ "#ff0000", "#FF5A36", "#FF7F00", "#FFA812" ],
+        "url": "data/issuecount.json"
     }
 ]}
