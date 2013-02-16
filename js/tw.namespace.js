@@ -10,6 +10,7 @@ var teamwall = {
         buildAlert: {},
         number: {},
         percent: {},
-        textArea: {}
+        textArea: {},
+        issueCount: {}
     }
 };

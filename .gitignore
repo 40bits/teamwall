@@ -1,4 +1,5 @@
 *.iml
 .idea/
-data/
+data
 teamwall.json
+node_modules

@@ -3,10 +3,10 @@
         "name":"Web UI",
         "chain":
                 [
-                    { "name":"unit tests", "status":"SUCCESS" },
+                    { "name":"unit tests", "status":"x" },
                     { "name":"deploy preview", "status":"SUCCESS" },
                     { "name":"selenium preview", "status":"SUCCESS" },
-                    { "name":"documentation", "status":"SUCCESS" },
+                    { "name":"documentation", "status":"x" },
                     { "name":"deploy integration", "status":"SUCCESS" },
                     { "name":"smoke integration", "status":"SUCCESS" }
                 ]
@@ -17,7 +17,7 @@
                 [
                     { "name":"Unit Tests", "status":"SUCCESS" },
                     { "name":"Integration tests", "status":"SUCCESS" },
-                    { "name":"System tests", "status":"SUCCESS" }
+                    { "name":"System tests", "status":"x" }
                 ]
     }
 ]
