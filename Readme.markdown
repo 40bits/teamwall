@@ -178,6 +178,10 @@ Example:
 
 **Instrument name :** buildchain
 
+This instrument is used to monitor a build chain / development pipeline. The complete chain is displayed.
+Broken steps are displayed in red.
+
+
 | Attribute | Definition |
 |-----------|------------|
 | title	|Title of the instrument |
@@ -222,13 +226,17 @@ Example:
 
 **Instrument name :** buildalert
 
-This instrument is used to monitor multiple build chains. If one team has more than one product (and therefore chain) it
-can take up a lot of screen estate. If you have the need for multiple chains, this instrument is for you.
-If needed, it can play sounds if any of the build chains turn to failure. This sound will be played at a defined interval. If the build turns to green from red another sound can be played.
+This instrument monitors broken builds. If everything is good the `noAlertText` will be displayed on a green background.
+If some builds are broken this instrument will turn red and displays them. With `showCount` you can add the count of the
+broken builds to the `title`. You can monitor multiple projects as well, see the Data Format section for more details.
+If needed, it can play sounds if any of the builds turn to failure. This sound will be played at a defined interval.
+If the build turns to green from red another sound can be played.
 
 
 | Attribute | Definition |
 |-----------|------------|
+| title | Title of the instrument |
+| showCount | If `true` it prints the count of broken build before the `title`. If count is zero, a No is printed. |
 | noAlertText | Text to be displayed, if all builds are successful, overrides default text |
 | sounds.failureSound | Sound to be played when one of the status fields is FAILURE |
 | sounds.failureInterval | Interval in seconds at which the sound should be play if the build is still red |
@@ -297,6 +305,7 @@ Example:
 ![Red](https://raw.github.com/40bits/teamwall/master/documentation/images/buildalert_red.png "Build Alert Red")
 ![Green](https://raw.github.com/40bits/teamwall/master/documentation/images/buildalert_green.png "Build Alert Green")
 
+TODO add new screenshots
 
 
 ### Number Instrument ###
