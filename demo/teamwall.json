@@ -43,15 +43,15 @@
     },
     {
         "id": "buildalert",
-        "top": 218,
+        "top": 118,
         "left": 628,
-        "width": 200,
-        "height": 200
+        "width": 300,
+        "height": 300
     },
     {
         "id": "issuecount",
-        "top": 420,
-        "left": 640,
+        "top": 428,
+        "left": 628,
         "width": 150,
         "height": 300
     }
@@ -98,9 +98,10 @@
         "fontSize": "3em"
     },
     {
+        "title": "Broken Builds",
+        "showCount": true,
         "instrument": "buildalert",
         "id": "buildalert",
-        "noAlertText": "We are doing it live.",
         "sounds": {
             "failureSound": "/sounds/tos-redalert.mp3",
             "failureInterval": "1800",
