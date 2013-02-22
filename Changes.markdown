@@ -1,3 +1,7 @@
+## 2013-02-22
+
+Added issue count instrument. BuildAlert now counts the failed builds in the header.
+
 ## 2013-01-25
 
 Instruments now can be rendered not only as <canvas> element but as well as any tag. The text area instrument was converted to be rendered as <div>.

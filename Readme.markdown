@@ -21,7 +21,7 @@ It looks like this:
 
 ##Changes##
 
-Checkout the [Changes file](teamwall/blob/master/Changes.markdown).
+Checkout the [Changes file](https://github.com/40bits/teamwall/blob/master/Changes.markdown).
 
 ##GUI##
 
