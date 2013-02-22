@@ -23,7 +23,7 @@ teamwall.instrument.buildAlert = function (configuration) {
 
         this.getInstrumentDrawType = function () {
             return "canvas";
-        }
+        };
 
         function drawInstrument(value) {
 
@@ -32,40 +32,42 @@ teamwall.instrument.buildAlert = function (configuration) {
             context.font = teamwall.render.fontForHeader(canvas);
             context.textBaseline = "middle";
             context.textAlign = "center";
-            var centerX = canvas.width / 2;
-            var centerY = canvas.height / 2;
 
             context.clearRect(0, 0, canvas.width, canvas.height);
-            var failedBuilds = [];
+            context.fillStyle = teamwall.configuration.instrumentBackground;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            var centerX = canvas.width / 2;
+            var headerHeight = 0;
+            var contentHeight = canvas.height;
+
+            var failedBuilds = findFailedBuilds();
+            if (instrumentConfiguration.title) {
+                headerHeight = canvas.height * 0.1;
+                contentHeight = canvas.height * 0.9;
+
+                var buildAlertTitleWithCount = ((failedBuilds.length > 0) ? failedBuilds.length + " " : "No ") + instrumentConfiguration.title;
+                var buildAlertTitle = (instrumentConfiguration.showCount == true) ? buildAlertTitleWithCount : instrumentConfiguration.title;
+                teamwall.render.writeText(context, buildAlertTitle, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
+            }
+
 
             var numberOfBuildChains = value.length;
             if (0 < numberOfBuildChains) {
-                jQuery.each(value, function () {
-                    var buildChain = this;
-                    jQuery.each(buildChain.chain, function () {
-                        var buildChainPart = this;
-                        if (buildChainPart.status != "SUCCESS") {
-                            failedBuilds.push({"chain": buildChain, "part": buildChainPart});
-                        }
-                    });
-
-                });
-                teamwall.render.writeText(context, "Builds", centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
-
                 if (0 < failedBuilds.length) {
                     context.fillStyle = teamwall.configuration.colorFailure;
-                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    context.fillRect(0, 0 + headerHeight, canvas.width, contentHeight);
                     context.fillStyle = teamwall.configuration.colorText;
-                    var heightOfOneBlock = canvas.height / failedBuilds.length;
+                    var heightOfOneBlock = contentHeight / failedBuilds.length;
                     var part = 0;
                     jQuery.each(failedBuilds, function () {
                         var failedBuild = this;
-                        context.fillText(failedBuild.chain.name + " " + failedBuild.part.name, centerX, part * heightOfOneBlock + (heightOfOneBlock / 2), canvas.width);
+                        context.fillText(failedBuild.chain.name + " " + failedBuild.part.name, centerX, part * heightOfOneBlock + (heightOfOneBlock / 2) + headerHeight, canvas.width);
                         part++;
                     });
 
                     if (instrumentConfiguration.sounds) {
-                        var now = new Date().getTime()
+                        var now = new Date().getTime();
                         if (now > lastTimeAlertSoundWasPlayed + instrumentConfiguration.sounds.failureInterval * 1000) {
                             var sound = new Audio(instrumentConfiguration.sounds.failureSound);
                             sound.play();
@@ -86,18 +88,34 @@ teamwall.instrument.buildAlert = function (configuration) {
                     }
 
                     context.fillStyle = teamwall.configuration.colorOk;
-                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    context.fillRect(0, 0 + headerHeight, canvas.width, contentHeight);
                     context.fillStyle = teamwall.configuration.colorText;
                     var allGoodText = "We're good";
                     if (instrumentConfiguration.noAlertText) {
                         allGoodText = instrumentConfiguration.noAlertText;
                     }
-                    context.fillText(allGoodText, centerX, centerY, canvas.width);
+                    var centerY = contentHeight / 2;
+                    context.fillText(allGoodText, centerX, centerY+ headerHeight, canvas.width);
                 }
             }
             else {
-                console.log("Can not display BuildChain <=0 ");
+                console.log("Can not display BuildChain <= 0 ");
             }
+
+            function findFailedBuilds() {
+                var failedBuilds = [];
+                jQuery.each(value, function () {
+                    var buildChain = this;
+                    jQuery.each(buildChain.chain, function () {
+                        var buildChainPart = this;
+                        if (buildChainPart.status != "SUCCESS") {
+                            failedBuilds.push({"chain": buildChain, "part": buildChainPart});
+                        }
+                    });
+                });
+                return failedBuilds;
+            }
+
         }
     }
 

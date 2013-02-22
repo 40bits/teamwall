@@ -43,10 +43,17 @@
     },
     {
         "id": "buildalert",
-        "top": 218,
+        "top": 118,
         "left": 628,
-        "width": 200,
-        "height": 200
+        "width": 300,
+        "height": 300
+    },
+    {
+        "id": "issuecount",
+        "top": 428,
+        "left": 628,
+        "width": 150,
+        "height": 300
     }
 ], "instruments": [
     {
@@ -91,14 +98,22 @@
         "fontSize": "3em"
     },
     {
+        "title": "Broken Builds",
+        "showCount": true,
         "instrument": "buildalert",
         "id": "buildalert",
-        "noAlertText": "We are doing it live.",
         "sounds": {
             "failureSound": "/sounds/tos-redalert.mp3",
             "failureInterval": "1800",
             "successSound": "/sounds/smb3_power-up.wav"
         },
         "url": "data/buildalert.json"
+    },
+    {
+        "id": "issuecount",
+        "instrument": "issuecount",
+        "title": "Issues",
+        "priorityColors" : [ "#ff0000", "#FF5A36", "#FF7F00", "#FFA812" ],
+        "url": "data/issuecount.json"
     }
 ]}

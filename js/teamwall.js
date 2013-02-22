@@ -50,6 +50,9 @@ function TeamwallApp() {
                     case "textarea" :
                         instrument = teamwall.instrument.textArea(instrumentConfiguration);
                         break;
+                    case "issuecount" :
+                        instrument = teamwall.instrument.issueCount(instrumentConfiguration);
+                        break;
                     default:
                         break;
                 }
