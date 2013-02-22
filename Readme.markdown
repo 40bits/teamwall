@@ -418,8 +418,7 @@ Example:
         "issueCountsOrderedByPrio" : [2, 1, 16, 11]
     }
 
-TODO screenshots
-
+![IssueCount](https://raw.github.com/40bits/teamwall/master/documentation/images/issuecount.png "Issue Count")
 
 # Layout #
 
