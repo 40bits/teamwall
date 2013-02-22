@@ -391,6 +391,8 @@ Example:
 This instrument will show the given issue count. Colors can be define with `priorityColors`.
 If issue count is zero, it will be displayed with a green background.
 
+This is usually used for displaying things like blocker, critical, major and minor bugs.
+
 | Attribute | Definition |
 |-----------|------------|
 | title	|Title of the instrument. Total issue count will be prefixed. |
