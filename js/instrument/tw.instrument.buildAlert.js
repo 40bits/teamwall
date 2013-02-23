@@ -26,12 +26,8 @@ teamwall.instrument.buildAlert = function (configuration) {
         };
 
         function drawInstrument(value) {
-
             var canvas = document.getElementById(instrumentConfiguration.id);
             var context = canvas.getContext("2d");
-            context.font = teamwall.render.fontForHeader(canvas);
-            context.textBaseline = "middle";
-            context.textAlign = "center";
 
             context.clearRect(0, 0, canvas.width, canvas.height);
             context.fillStyle = teamwall.configuration.instrumentBackground;
@@ -51,6 +47,10 @@ teamwall.instrument.buildAlert = function (configuration) {
                 teamwall.render.writeText(context, buildAlertTitle, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
             }
 
+            var fontScaleFactorPercentage = 90/failedBuilds.length/2;
+            context.font = teamwall.render.font(canvas, fontScaleFactorPercentage);
+            context.textBaseline = "middle";
+            context.textAlign = "center";
 
             var numberOfBuildChains = value.length;
             if (0 < numberOfBuildChains) {
