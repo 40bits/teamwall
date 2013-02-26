@@ -22,6 +22,21 @@ teamwall.render.font = function (canvas, percentHeight) {
     return font;
 };
 
+teamwall.render.perfectFont = function (context, longestText) {
+    var textWidth;
+    var fontSize = 10;
+    var fontSizeIncrement = 2;
+    var eightyPercentOfWidth = context.canvas.width*0.8;
+    do {
+        context.font = fontSize + "pt " + teamwall.configuration.font;
+        var metrics = context.measureText(text); // is based on canvas.width
+        textWidth = metrics.width;
+        fontSize += fontSizeIncrement;
+    } while (textWidth < (eightyPercentOfWidth));
+    var secondToLastFontSize = (fontSize - (2 * fontSizeIncrement));
+    context.font = secondToLastFontSize + "pt " + teamwall.configuration.font;
+}
+
 teamwall.render.yPointForDrawingHeading = function (canvas) {
     return canvas.height / 18
 };

@@ -1,10 +1,3 @@
-/*
- {
- "instrument":"buildalert",
- "id":"buildalert",
- "url":"data/buildalert.json"
- }
- */
 teamwall.instrument.buildAlert = function (configuration) {
 
     function BuildAlertInstrument(configuration) {
@@ -42,27 +35,26 @@ teamwall.instrument.buildAlert = function (configuration) {
                 headerHeight = canvas.height * 0.1;
                 contentHeight = canvas.height * 0.9;
 
-                var buildAlertTitleWithCount = ((failedBuilds.length > 0) ? failedBuilds.length + " " : "No ") + instrumentConfiguration.title;
+                var buildAlertTitleWithCount = ((failedBuilds.builds.length > 0) ? failedBuilds.builds.length + " " : "No ") + instrumentConfiguration.title;
                 var buildAlertTitle = (instrumentConfiguration.showCount == true) ? buildAlertTitleWithCount : instrumentConfiguration.title;
                 teamwall.render.writeText(context, buildAlertTitle, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
             }
 
-            var fontScaleFactorPercentage = 90/failedBuilds.length/2;
-            context.font = teamwall.render.font(canvas, fontScaleFactorPercentage);
             context.textBaseline = "middle";
             context.textAlign = "center";
+            teamwall.render.perfectFont(context, failedBuilds.longestText, canvas.width * 0.9);
 
             var numberOfBuildChains = value.length;
             if (0 < numberOfBuildChains) {
-                if (0 < failedBuilds.length) {
+                if (0 < failedBuilds.builds.length) {
                     context.fillStyle = teamwall.configuration.colorFailure;
                     context.fillRect(0, 0 + headerHeight, canvas.width, contentHeight);
                     context.fillStyle = teamwall.configuration.colorText;
-                    var heightOfOneBlock = contentHeight / failedBuilds.length;
+                    var heightOfOneBlock = contentHeight / failedBuilds.builds.length;
                     var part = 0;
-                    jQuery.each(failedBuilds, function () {
-                        var failedBuild = this;
-                        context.fillText(failedBuild.chain.name + " " + failedBuild.part.name, centerX, part * heightOfOneBlock + (heightOfOneBlock / 2) + headerHeight, canvas.width);
+                    jQuery.each(failedBuilds.builds, function () {
+                        var brokenBuildName = this;
+                        context.fillText(brokenBuildName, centerX, part * heightOfOneBlock + (heightOfOneBlock / 2) + headerHeight, canvas.width); // * 0.9);
                         part++;
                     });
 
@@ -95,7 +87,7 @@ teamwall.instrument.buildAlert = function (configuration) {
                         allGoodText = instrumentConfiguration.noAlertText;
                     }
                     var centerY = contentHeight / 2;
-                    context.fillText(allGoodText, centerX, centerY+ headerHeight, canvas.width);
+                    context.fillText(allGoodText, centerX, centerY+ headerHeight, canvas.width * 0.9);
                 }
             }
             else {
@@ -103,19 +95,22 @@ teamwall.instrument.buildAlert = function (configuration) {
             }
 
             function findFailedBuilds() {
-                var failedBuilds = [];
+                var failedBuilds = {"longestText": "", builds: []};
                 jQuery.each(value, function () {
                     var buildChain = this;
                     jQuery.each(buildChain.chain, function () {
                         var buildChainPart = this;
                         if (buildChainPart.status != "SUCCESS") {
-                            failedBuilds.push({"chain": buildChain, "part": buildChainPart});
+                            var brokenBuildName = buildChain.name + " " + buildChainPart.name;
+                            if (brokenBuildName.length > failedBuilds.longestText.length) {
+                                failedBuilds.longestText = brokenBuildName;
+                            }
+                            failedBuilds.builds.push(brokenBuildName);
                         }
                     });
                 });
                 return failedBuilds;
             }
-
         }
     }
 
