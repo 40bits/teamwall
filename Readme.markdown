@@ -205,7 +205,7 @@ The format consists of a list of build steps.
 | name | Name of the build step |
 | status | FAILURE or SUCCESS |
 
-There can be as many buid steps as needed.
+There can be as many build steps as needed.
 
 Example:
 
