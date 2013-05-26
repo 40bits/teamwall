@@ -51,7 +51,7 @@ loaded.
 
 You need a browser with a working HTML 5 canvas to use this.
 
-For a very quick example checkout the [demo directory](teamwall/tree/master/demo).
+For a very quick example checkout the [demo directory](https://github.com/40bits/teamwall/tree/master/demo).
 
 ## Example ##
 
