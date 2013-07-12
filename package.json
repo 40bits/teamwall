@@ -1,0 +1,26 @@
+{
+  "name": "teamwall",
+  "version": "0.1.0",
+  "description": "The developer's dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fxa/teamwall.git"
+  },
+  "keywords": [
+    "dashboard",
+    "team",
+    "monitor"
+  ],
+  "author": "Oliver Wehrens",
+  "license": "Apache Version 2",
+  "bugs": {
+    "url": "https://github.com/fxa/teamwall/issues"
+  },
+  "dependencies": {
+    "connect": "latest"
+  }
+}
