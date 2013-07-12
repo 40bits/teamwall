@@ -35,7 +35,7 @@ Drop me a line on [twitter](https://twitter.com/owehrens).
 # Get started #
 
 Put everything in a directory served by a web server. You can also run
-`node server.js` which will start a server on port 8888. Find below a list of instruments which can be used to visualize critical
+`npm update` and `node server.js` which will start a server on port 8888. Find below a list of instruments which can be used to visualize critical
 information.
 
 What `you` need to do is to create a `teamwall.json` file and put it into the root directory of teamwall. This file contains
