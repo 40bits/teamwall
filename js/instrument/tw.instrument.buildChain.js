@@ -55,6 +55,9 @@ teamwall.instrument.buildChain = function (configuration) {
                     if ("SUCCESS" == buildChainPart.status) {
                         context.fillStyle = teamwall.configuration.colorOk;
                     }
+                    else if ("RUNNING" == buildChainPart.status) {
+                        context.fillStyle = teamwall.configuration.colorRunning;
+                    }
                     else {
                         context.fillStyle = teamwall.configuration.colorFailure;
                     }

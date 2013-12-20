@@ -203,7 +203,7 @@ The format consists of a list of build steps.
 | Attribute | Definition |
 |-----------|------------|
 | name | Name of the build step |
-| status | FAILURE or SUCCESS |
+| status | FAILURE or SUCCESS or RUNNING |
 
 There can be as many build steps as needed.
 
@@ -214,7 +214,7 @@ Example:
 		{ "name":"deploy preview", "status":"SUCCESS" },
 		{ "name":"selenium preview", "status":"FAILURE" },
 		{ "name":"documentation", "status":"SUCCESS" }, 
-		{ "name":"deploy integration", "status":"SUCCESS" },
+		{ "name":"deploy integration", "status":"RUNNING" },
 		{ "name":"smoke integration", "status":"SUCCESS" } 
 	]
 
@@ -269,7 +269,7 @@ A list of build chains can be defined.
 | Attribute | Definition |
 |-----------|------------|
 | name | Name of the build step |
-| status | FAILURE or SUCCESS |
+| status | FAILURE or SUCCESS or RUNNING |
 
 There can be as many buid steps as needed.
 
@@ -284,7 +284,7 @@ Example:
                 { "name":"deploy preview", "status":"SUCCESS" },
                 { "name":"selenium preview", "status":"FAILURE" },
                 { "name":"documentation", "status":"SUCCESS" },
-                { "name":"deploy integration", "status":"SUCCESS" },
+                { "name":"deploy integration", "status":"RUNNING" },
                 { "name":"smoke integration", "status":"SUCCESS" }
               ]
     },

@@ -1,6 +1,7 @@
 teamwall.configuration = {
 
     colorOk: "#6b9c28",
+    colorRunning: "#ff6b00",
     colorWarning: "#fdd749",
     colorBackground: "#373636",
     colorFailure: "#F40E2a",
