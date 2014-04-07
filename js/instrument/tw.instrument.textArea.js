@@ -27,7 +27,9 @@ teamwall.instrument.textArea = function (configuration) {
 
             $(divElement).text(text);
             $(divElement).css({
-                'font-size': instrumentConfiguration.fontSize
+                'font-size': instrumentConfiguration.fontSize,
+                'color': instrumentConfiguration.color,
+                'backgroundColor': instrumentConfiguration.backgroundColor
             });
         }
     }

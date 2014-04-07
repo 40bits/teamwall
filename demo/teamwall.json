@@ -95,7 +95,9 @@
         "id": "text",
         "instrument": "textarea",
         "url": "data/textarea.json",
-        "fontSize": "3em"
+        "fontSize": "4em",
+        "backgroundColor": "green",
+        "color": "yellow"
     },
     {
         "title": "Broken Builds",
