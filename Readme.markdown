@@ -370,8 +370,8 @@ This instrument will simply show the text given to it. It tries to fill the maxi
 | Attribute | Definition |
 |-----------|------------|
 | fontSize	|Size of the font |
-| color     | Color of the text |
-| backgroundColor | Color of the background |
+| color     | Color of the text (optional) |
+| backgroundColor | Color of the background (optional) |
 
 #### Data Format ####
 

@@ -27,10 +27,18 @@ teamwall.instrument.textArea = function (configuration) {
 
             $(divElement).text(text);
             $(divElement).css({
-                'font-size': instrumentConfiguration.fontSize,
-                'color': instrumentConfiguration.color,
-                'backgroundColor': instrumentConfiguration.backgroundColor
+                'font-size': instrumentConfiguration.fontSize
             });
+            if (instrumentConfiguration.color) {
+                $(divElement).css({
+                    'color': instrumentConfiguration.color
+                });
+            }
+            if (instrumentConfiguration.backgroundColor) {
+                $(divElement).css({
+                    'backgroundColor': instrumentConfiguration.backgroundColor
+                });
+            }
         }
     }
 
