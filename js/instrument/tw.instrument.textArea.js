@@ -25,6 +25,10 @@ teamwall.instrument.textArea = function (configuration) {
             var divElement = document.getElementById(instrumentConfiguration.id),
                 text = data.value;
 
+            if (data.backgroundColor) {
+                instrumentConfiguration.backgroundColor = data.backgroundColor
+            }
+
             $(divElement).text(text);
             $(divElement).css({
                 'font-size': instrumentConfiguration.fontSize

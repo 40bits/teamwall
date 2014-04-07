@@ -1,6 +1,6 @@
 {"layouts": [
     {
-        "id": "codecoverage",
+        "id": "greenbuildpercentage",
         "top": 118,
         "left": 8,
         "width": 300,
@@ -35,7 +35,7 @@
         "height": 300
     },
     {
-        "id": "text",
+        "id": "integrationbuild",
         "top": 8,
         "left": 8,
         "width": 800,
@@ -66,6 +66,15 @@
         "show_trend": true
     },
     {
+        "id": "greenbuildpercentage",
+        "instrument": "percent",
+        "title": "Green Build",
+        "url": "data/greenbuildpercentage.json",
+        "threshold_value": "90",
+        "higher_is_better": true,
+        "show_trend": false
+    },
+    {
         "id": "buildchain",
         "title": "Webshop Buildchain",
         "instrument": "buildchain",
@@ -92,12 +101,11 @@
         "show_trend": true
     },
     {
-        "id": "text",
+        "id": "integrationbuild",
         "instrument": "textarea",
-        "url": "data/textarea.json",
+        "url": "data/integrationbuild.json",
         "fontSize": "4em",
-        "backgroundColor": "green",
-        "color": "yellow"
+        "color": "white"
     },
     {
         "title": "Broken Builds",

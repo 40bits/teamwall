@@ -378,6 +378,7 @@ This instrument will simply show the text given to it. It tries to fill the maxi
 | Attribute | Definition |
 |-----------|------------|
 | value     | The text to be displayed |
+| backgroundColor | Color of the background (optional) |
 
 Example:
 
