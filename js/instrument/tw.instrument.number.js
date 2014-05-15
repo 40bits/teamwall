@@ -18,6 +18,11 @@ teamwall.instrument.number = function (configuration) {
 
         var helpLines = false;
         var instrumentConfiguration = configuration;
+        var oldValue = undefined;
+        var TREND_UP = "1";
+        var TREND_DOWN = "-1";
+        var TREND_SAME = "0";
+
 
         this.setValue = function (data) {
             var value = data.value;
@@ -36,29 +41,51 @@ teamwall.instrument.number = function (configuration) {
         };
 
         function drawInstrument(value, threshold, trend, date) {
-            var canvas = document.getElementById(instrumentConfiguration.id);
-            var context = canvas.getContext("2d");
-            var centerX = canvas.width / 2;
-            var centerY = canvas.height / 2;
+            if (value != oldValue) {
+                var canvas = document.getElementById(instrumentConfiguration.id);
+                var context = canvas.getContext("2d");
+                var centerX = canvas.width / 2;
+                var centerY = canvas.height / 2;
 
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.fillStyle = teamwall.configuration.instrumentBackground;
-            context.fillRect(0, 0, canvas.width, canvas.height);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillStyle = teamwall.configuration.instrumentBackground;
+                context.fillRect(0, 0, canvas.width, canvas.height);
 
-            teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
-            showThreshold(value, threshold, context, centerX, canvas);
-            var valueToBeDisplayed = teamwall.math.round(value, instrumentConfiguration.decimal_places);
-            teamwall.render.writeText(context, valueToBeDisplayed, centerX, centerY, getFontWithRightSize(canvas, context, valueToBeDisplayed), teamwall.configuration.colorText);
-            showTrend(trend, context, canvas);
-            drawUnit(instrumentConfiguration.unit, context, canvas, centerX);
+                teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
+                showThreshold(value, threshold, context, centerX, canvas);
+                var valueToBeDisplayed = teamwall.math.round(value, instrumentConfiguration.decimal_places);
+                teamwall.render.writeText(context, valueToBeDisplayed, centerX, centerY, getFontWithRightSize(canvas, context, valueToBeDisplayed), teamwall.configuration.colorText);
+                if (trend == undefined) {
 
-            if (helpLines) {
-                drawHelpLines(canvas, context);
-            }
+                    if (instrumentConfiguration.higher_is_better) {
+                        if (value > oldValue) {
+                            trend = TREND_UP;
+                        } else {
+                            trend = TREND_DOWN;
+                        }
+                    }
 
-//            if (instrumentConfiguration.show_age && date != undefined) {
+                    if (!instrumentConfiguration.higher_is_better) {
+                        if (value < oldValue) {
+                            trend = TREND_DOWN;
+                        } else {
+                            trend = TREND_UP;
+                        }
+
+                    }
+                }
+                showTrend(trend, context, canvas);
+                drawUnit(instrumentConfiguration.unit, context, canvas, centerX);
+
+                if (helpLines) {
+                    drawHelpLines(canvas, context);
+                }
+
+//            if (instrumentConfiguration.show_age ) {
 //                teamwall.render.writeText(context, "5 h ago", centerX, teamwall.render.yPointForDrawing2ndHeading(canvas), teamwall.render.fontFor2ndHeader(canvas), teamwall.configuration.colorBackground);
 //            }
+                oldValue = value;
+            }
         }
 
         function drawUnit(unit, context, canvas, centerX) {
@@ -88,9 +115,6 @@ teamwall.instrument.number = function (configuration) {
 
         function showTrend(trend, context, canvas) {
             if (instrumentConfiguration.show_trend) {
-                var TREND_UP = "1";
-                var TREND_DOWN = "-1";
-                var TREND_SAME = "0";
 
                 if (trend == TREND_UP) {
                     var color = instrumentConfiguration.higher_is_better ? teamwall.configuration.colorOk : teamwall.configuration.colorFailure;
