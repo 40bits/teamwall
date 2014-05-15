@@ -78,9 +78,8 @@ function TeamwallApp() {
                         canvas.id = layout.id;
                         canvas.width = layout.width ? layout.width : DEFAULT_WIDTH;
                         canvas.height = layout.height ? layout.height : DEFAULT_HEIGHT;
-                        var position = typeToDraw == 'canvas' ? 'absolute' : 'relative';
                         $(canvas).css({
-                            position: position,
+                            position: 'absolute',
                             top: layout.top,
                             left: layout.left,
                             width: canvas.width,
