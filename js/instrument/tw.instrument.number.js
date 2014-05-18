@@ -55,7 +55,7 @@ teamwall.instrument.number = function (configuration) {
                 showThreshold(value, threshold, context, centerX, canvas);
                 var valueToBeDisplayed = teamwall.math.round(value, instrumentConfiguration.decimal_places);
                 teamwall.render.writeText(context, valueToBeDisplayed, centerX, centerY, getFontWithRightSize(canvas, context, valueToBeDisplayed), teamwall.configuration.colorText);
-                if (trend == undefined) {
+                if (trend == undefined && oldValue!= undefined) {
 
                     if (instrumentConfiguration.higher_is_better) {
                         if (value > oldValue) {
