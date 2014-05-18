@@ -16,11 +16,15 @@ teamwall.instrument.percent = function (configuration) {
 
         var instrumentConfiguration = configuration;
         var currentValue = 0;
+        var animation_loop, targetValue, targetData;
 
         this.setValue = function (data) {
-            var targetValue = teamwall.math.round(data.value, 1);
-            drawInstrument(targetValue, data.threshold_value, data.trend);
-            currentValue = targetValue;
+            targetValue = teamwall.math.round(data.value, 1);
+
+            var difference = targetValue - currentValue;
+            if (typeof animation_loop != undefined) clearInterval(animation_loop);
+            targetData = data;
+            animation_loop = window.setInterval(animateTo, 1000 / Math.abs(difference));
         };
 
         this.getInstrumentDrawType = function () {
@@ -30,6 +34,23 @@ teamwall.instrument.percent = function (configuration) {
         this.getConfiguration = function () {
             return instrumentConfiguration;
         };
+
+
+        function animateTo() {
+            var paintValue = currentValue;
+            if (Math.floor(currentValue) == Math.floor(targetValue)) {
+                clearInterval(animation_loop);
+                drawInstrument(targetValue, targetData.threshold_value, targetData.trend);
+            } else {
+
+                if (currentValue < targetValue)
+                    paintValue++;
+                if (currentValue > targetValue)
+                    paintValue--;
+
+                drawInstrument(paintValue, targetData.threshold_value, targetData.trend);
+            }
+        }
 
         function drawInstrument(value, threshold, trend) {
             var canvas = document.getElementById(instrumentConfiguration.id),
@@ -62,13 +83,14 @@ teamwall.instrument.percent = function (configuration) {
             drawArcClockwise(context, centerX, centerY, radius, 0, degree360, teamwall.configuration.colorBackground, lineWidth);
             drawArcClockwise(context, centerX, centerY, radius, zeroPercentAngle, valueEndAngle, valueColor, lineWidth * 0.8);
             if (!instrumentConfiguration.higher_is_better) {
-                drawArcCounterClockwise(context, centerX, centerY, radius, zeroPercentAngle , valueEndAngle , teamwall.configuration.colorOk, lineWidth * 0.8);
+                drawArcCounterClockwise(context, centerX, centerY, radius, zeroPercentAngle, valueEndAngle, teamwall.configuration.colorOk, lineWidth * 0.8);
             }
 
-            teamwall.render.writeText(context, value, centerX, centerY, teamwall.render.font(canvas, 13), teamwall.configuration.colorText);
+            teamwall.render.writeText(context, teamwall.math.round(value, 1), centerX, centerY, teamwall.render.font(canvas, 13), teamwall.configuration.colorText);
             teamwall.render.writeText(context, "%", canvas.width * 0.72, canvas.height * 0.47, teamwall.render.font(canvas, 4), teamwall.configuration.colorText);
             teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
             drawTrend(context, canvas, trend);
+            currentValue = value;
         }
 
         function defineValueColor(value) {
