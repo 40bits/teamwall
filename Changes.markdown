@@ -1,3 +1,9 @@
+## 2014-05-18
+
+Number and Percentage instruments are now animated
+If trend should be shown but none was supplied with the number instrument it will be calculated by the instrument itself.
+Some code reorganization
+
 ## 2013-02-22
 
 Added issue count instrument. BuildAlert now counts the failed builds in the header.
