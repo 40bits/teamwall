@@ -11,7 +11,7 @@ function TeamwallApp() {
                 teamwall.app.canvases = createInstrumentCanvases(teamwall.app.instruments, config.layouts);
                 drawCanvases(teamwall.app.canvases);
                 makeItDraggable();
-
+                updateInstruments();
             },
             statusCode: {
                 404: error404
@@ -52,6 +52,9 @@ function TeamwallApp() {
                         break;
                     case "issuecount" :
                         instrument = teamwall.instrument.issueCount(instrumentConfiguration);
+                        break;
+                    case "gauge" :
+                        instrument = teamwall.instrument.gauge(instrumentConfiguration);
                         break;
                     default:
                         break;

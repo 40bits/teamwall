@@ -18,18 +18,25 @@ teamwall.instrument.number = function (configuration) {
 
         var helpLines = false;
         var instrumentConfiguration = configuration;
-        var oldValue = undefined;
+        var currentValue = 0;
         var TREND_UP = "1";
         var TREND_DOWN = "-1";
         var TREND_SAME = "0";
 
+        var animation_loop, targetValue, targetData;
+
 
         this.setValue = function (data) {
-            var value = data.value;
+             targetValue = data.value;
             if (data.decimal_places && data.decimal_places > 0) {
-                value = teamwall.math.round(data.value, 1);
+                targetValue = teamwall.math.round(data.value, 1);
             }
-            drawInstrument(value, data.threshold_value, data.trend, data.date);
+
+            var difference = targetValue - currentValue;
+            if(typeof animation_loop != undefined) clearInterval(animation_loop);
+            targetData = data;
+            animation_loop = window.setInterval(animateTo, 1000/Math.abs(difference));
+
         };
 
         this.getInstrumentDrawType = function () {
@@ -40,8 +47,23 @@ teamwall.instrument.number = function (configuration) {
             return instrumentConfiguration;
         };
 
+
+        function animateTo()
+        {
+            var paintValue = currentValue;
+            if(currentValue == targetValue)
+                clearInterval(animation_loop);
+
+            if(currentValue < targetValue)
+                paintValue++;
+            if (currentValue > targetValue)
+                paintValue--;
+
+            drawInstrument(paintValue, targetData.threshold_value, targetData.trend, targetData.date);
+        }
+
         function drawInstrument(value, threshold, trend, date) {
-            if (value != oldValue) {
+            if (value != currentValue) {
                 var canvas = document.getElementById(instrumentConfiguration.id);
                 var context = canvas.getContext("2d");
                 var centerX = canvas.width / 2;
@@ -55,10 +77,10 @@ teamwall.instrument.number = function (configuration) {
                 showThreshold(value, threshold, context, centerX, canvas);
                 var valueToBeDisplayed = teamwall.math.round(value, instrumentConfiguration.decimal_places);
                 teamwall.render.writeText(context, valueToBeDisplayed, centerX, centerY, getFontWithRightSize(canvas, context, valueToBeDisplayed), teamwall.configuration.colorText);
-                if (trend == undefined && oldValue!= undefined) {
+                if (trend == undefined && currentValue!= undefined) {
 
                     if (instrumentConfiguration.higher_is_better) {
-                        if (value > oldValue) {
+                        if (value > currentValue) {
                             trend = TREND_UP;
                         } else {
                             trend = TREND_DOWN;
@@ -66,7 +88,7 @@ teamwall.instrument.number = function (configuration) {
                     }
 
                     if (!instrumentConfiguration.higher_is_better) {
-                        if (value < oldValue) {
+                        if (value < currentValue) {
                             trend = TREND_DOWN;
                         } else {
                             trend = TREND_UP;
@@ -84,7 +106,7 @@ teamwall.instrument.number = function (configuration) {
 //            if (instrumentConfiguration.show_age ) {
 //                teamwall.render.writeText(context, "5 h ago", centerX, teamwall.render.yPointForDrawing2ndHeading(canvas), teamwall.render.fontFor2ndHeader(canvas), teamwall.configuration.colorBackground);
 //            }
-                oldValue = value;
+                currentValue = value;
             }
         }
 
