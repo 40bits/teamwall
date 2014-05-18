@@ -10,7 +10,7 @@ teamwall.render.fontFor2ndHeader = function (canvas) {
     var fontSize = tenPercentHeight / 3;
     var font = fontSize + "pt " + teamwall.configuration.font;
     return font;
-} ;
+};
 
 teamwall.render.font = function (canvas, percentHeight) {
     var masterScaleFactor = canvas.width;
@@ -30,9 +30,9 @@ teamwall.render.yPointForDrawingFooter = function (canvas) {
     return canvas.height - (canvas.height / 18);
 };
 
-teamwall.render.yPointForDrawing2ndHeading = function(canvas) {
+teamwall.render.yPointForDrawing2ndHeading = function (canvas) {
     return canvas.height - (15.4 * (canvas.height / 18));
-} ;
+};
 
 teamwall.render.writeText = function (context, text, x, y, font, color) {
     context.font = font;
@@ -40,6 +40,10 @@ teamwall.render.writeText = function (context, text, x, y, font, color) {
     context.fillStyle = color;
     context.textBaseline = "middle";
     context.fillText(text, x, y);
-//    context.shadowColor="black";
-//    context.shadowBlur = 10;
 };
+
+teamwall.render.drawCanvases = function (canvases) {
+    jQuery.each(canvases, function () {
+        document.body.appendChild(this);
+    })
+}

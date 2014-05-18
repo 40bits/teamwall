@@ -64,5 +64,9 @@ teamwall.ui.init = function init() {
         teamwall.app.deleteInstrument(id);
     }
 
+    $(teamwall.configuration.cssSelectorAddInstrument).click(function addNewInstrumentLayout() {
+    })
+
+
 
 };

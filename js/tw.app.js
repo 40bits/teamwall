@@ -36,6 +36,21 @@ teamwall.app.deleteInstrument = function deleteInstrument(instrumentId) {
 
 };
 
+teamwall.app.addInstrument = function addInstrument(id) {
+
+    function addToCanvasArray(id) {
+
+    }
+
+    function addToInstrumentArray(id) {
+
+    }
+
+    addToCanvasArray(id);
+    addToInstrumentArray(id);
+
+}
+
 teamwall.app.getConfiguration = function getConfiguration() {
     var layouts = [];
     jQuery.each(teamwall.app.canvases, function () {
