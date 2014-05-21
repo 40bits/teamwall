@@ -1,0 +1,24 @@
+{
+    "layouts": [
+        {
+            "id": "test",
+            "top": 8,
+            "left": 8,
+            "width": 300,
+            "height": 300
+        }
+    ], "instruments": [
+    {
+        "id": "test",
+        "instrument": "number",
+        "title": "Test Number Instrument",
+        "url": "test/data/number.instrument.json",
+        "decimal_places": "0",
+        "higher_is_better": false,
+        "unit": "#",
+        "show_trend": true,
+        "show_age": true,
+        "threshold_value": 5
+    }
+]
+}

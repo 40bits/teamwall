@@ -18,7 +18,7 @@ teamwall.instrument.number = function (configuration) {
 
         var helpLines = false;
         var instrumentConfiguration = configuration;
-        var currentValue = 0;
+        var currentValue = undefined;
         var TREND_UP = "1";
         var TREND_DOWN = "-1";
         var TREND_SAME = "0";
@@ -51,6 +51,9 @@ teamwall.instrument.number = function (configuration) {
         function animateTo()
         {
             var paintValue = currentValue;
+            if (paintValue == undefined) {
+                paintValue = 0;
+            }
             if(currentValue == targetValue)
                 clearInterval(animation_loop);
 
