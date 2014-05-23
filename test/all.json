@@ -1,13 +1,29 @@
 {
     "layouts": [
         {
-            "id": "number",
+            "id": "percent",
             "top": 8,
             "left": 8,
             "width": 300,
             "height": 300
+        },
+        {
+            "id": "number",
+            "top": 8,
+            "left": 316,
+            "width": 300,
+            "height": 300
         }
     ], "instruments": [
+    {
+        "id": "percent",
+        "instrument": "percent",
+        "title": "Test Percent Instrument",
+        "url": "http://localhost:8889/?instrument=number",
+        "higher_is_better": true,
+        "show_trend": true,
+        "threshold_value": 50
+    },
     {
         "id": "number",
         "instrument": "number",

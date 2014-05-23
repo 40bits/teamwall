@@ -1,3 +1,10 @@
+## 2014-05-23
+
+Added some better examples.
+
+If you use 'node server.js' in the main directory you can now use `http://localhost:8888/test` to get an example of some instruments with live, random data.
+For that you need to start another node instance defined in the 'test directory with `node testdata.js`.
+
 ## 2014-05-18
 
 Number and Percentage instruments are now animated
