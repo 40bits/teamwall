@@ -1,10 +1,10 @@
 teamwall.configuration = {
 
-    colorOk: "#6b9c28",
-    colorRunning: "#ff6b00",
+    colorOk: "#287C12",
+    colorRunning: "#1584F0",
     colorWarning: "#fdd749",
     colorBackground: "#373636",
-    colorFailure: "#F40E2a",
+    colorFailure: "#C74243",
     colorText: "#e1dbd8",
     font: "Doppio One",
     instrumentBackground: "#454545",

@@ -18,8 +18,8 @@
             "id": "linechart",
             "top": 316,
             "left": 8,
-            "width": 800,
-            "height": 300
+            "width": 1000,
+            "height": 400
         }
     ], "instruments": [
     {
