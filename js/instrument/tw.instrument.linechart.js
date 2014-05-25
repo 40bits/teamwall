@@ -7,7 +7,6 @@ teamwall.instrument.lineChart = function (configuration) {
         var fontYAxisHeight, fontXAxisHeight = undefined;
 
 
-
         this.setValue = function (data) {
             drawInstrument(data);
         };
@@ -24,7 +23,6 @@ teamwall.instrument.lineChart = function (configuration) {
         function drawAxis(context, canvas) {
             context.beginPath();
 
-
             var spaceForHeading = canvas.height * 0.1;
             context.moveTo(fontXAxisHeight, spaceForHeading);
             context.lineTo(fontXAxisHeight, canvas.height - fontYAxisHeight);
@@ -35,6 +33,8 @@ teamwall.instrument.lineChart = function (configuration) {
             context.strokeStyle = "white";
             context.fillStyle = "white";
             context.stroke();
+
+
         }
 
 
@@ -44,9 +44,8 @@ teamwall.instrument.lineChart = function (configuration) {
             var centerX = canvas.width / 2;
             var centerY = canvas.height / 2;
             var highestValuesInGraph, lowestValueInGraph = undefined;
-            fontYAxisHeight= 50;
+            fontYAxisHeight = 50;
             fontXAxisHeight = 50;
-
 
 
             context.clearRect(0, 0, canvas.width, canvas.height);
@@ -93,16 +92,39 @@ teamwall.instrument.lineChart = function (configuration) {
                     var xPoint = virtualXZero + (counter * xSteps);
                     context.lineTo(xPoint, yPoint);
                     counter++;
-                    console.log("Line to X: " + xPoint + "Y:" + yPoint + " Value " + entry);
+                    console.log("Line to X: " + xPoint + " Y:" + yPoint + " Value " + entry);
                 });
                 context.lineCap = "round";
-                context.lineWidth = 1;
+                context.lineWidth = 2;
                 context.strokeStyle = chart.color;
                 context.stroke();
 
             });
 
             drawAxis(context, canvas);
+
+            var oneUnitIsPixel = lengthYAxis / highestValuesInGraph;
+            console.log("One Unit is " + oneUnitIsPixel + " Pixel");
+            var yNumber = 0;
+            for (var yValue = ((data.yscale) * oneUnitIsPixel); yValue < lengthYAxis; yValue = yValue + ((data.yscale) * oneUnitIsPixel)) {
+                console.log("yValue : " + yValue);
+                context.beginPath();
+                context.moveTo(virtualXZero, virtualYZero - yValue);
+                context.lineTo(virtualXZero + lengthXAxis, virtualYZero - yValue);
+                context.lineCap = "round";
+                context.lineWidth = 1;
+                context.setLineDash([4, 20]);
+                context.strokeStyle = "grey";
+                context.stroke();
+
+                yNumber = yNumber + data.yscale;
+                teamwall.render.writeText(context, yNumber, virtualXZero - 20, virtualYZero - yValue, teamwall.render.fontFor2ndHeader(canvas), teamwall.configuration.colorText);
+
+
+            }
+            context.setLineDash([0]);
+
+//                var yValue = virtualYZero - data.yscale;
 
 
         }
