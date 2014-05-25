@@ -38,12 +38,51 @@ teamwall.instrument.lineChart = function (configuration) {
         }
 
 
+        function drawDataLines(data, context, virtualXZero, virtualYZero, ySteps, xSteps) {
+            data.charts.forEach(function (chart) {
+                var counter = 0;
+                context.beginPath();
+                context.moveTo(virtualXZero, virtualYZero);
+                chart.values.forEach(function (entry) {
+                    var yPoint = virtualYZero - (entry * ySteps);
+                    var xPoint = virtualXZero + (counter * xSteps);
+                    context.lineTo(xPoint, yPoint);
+                    counter++;
+                });
+                context.lineCap = "round";
+                context.lineWidth = 2;
+                context.strokeStyle = chart.color;
+                context.stroke();
+            });
+        }
+
+        function drawHelperYLines(lengthYAxis, highestValuesInGraph, data, context, virtualXZero, virtualYZero, lengthXAxis, canvas) {
+            var oneUnitIsPixel = lengthYAxis / highestValuesInGraph;
+            console.log("One Unit is " + oneUnitIsPixel + " Pixel");
+            var yNumber = 0;
+            for (var yValue = ((data.yscale) * oneUnitIsPixel); yValue < lengthYAxis; yValue = yValue + ((data.yscale) * oneUnitIsPixel)) {
+                console.log("yValue : " + yValue);
+                context.beginPath();
+                context.moveTo(virtualXZero, virtualYZero - yValue);
+                context.lineTo(virtualXZero + lengthXAxis, virtualYZero - yValue);
+                context.lineCap = "round";
+                context.lineWidth = 1;
+                context.setLineDash([4, 20]);
+                context.strokeStyle = "grey";
+                context.stroke();
+
+                yNumber = yNumber + data.yscale;
+                teamwall.render.writeText(context, yNumber, virtualXZero - 20, virtualYZero - yValue, teamwall.render.fontFor2ndHeader(canvas), teamwall.configuration.colorText);
+            }
+            context.setLineDash([0]);
+        }
+
         function drawInstrument(data) {
             var canvas = document.getElementById(instrumentConfiguration.id);
             var context = canvas.getContext("2d");
             var centerX = canvas.width / 2;
             var centerY = canvas.height / 2;
-            var highestValuesInGraph, lowestValueInGraph = undefined;
+            var highestValuesInGraph = undefined, lowestValueInGraph = undefined;
             fontYAxisHeight = 50;
             fontXAxisHeight = 50;
 
@@ -63,7 +102,6 @@ teamwall.instrument.lineChart = function (configuration) {
                         lowestValueInGraph = entry;
                     }
                 });
-
             });
 
             var lengthYAxis = canvas.height - 10 - fontYAxisHeight;
@@ -79,53 +117,27 @@ teamwall.instrument.lineChart = function (configuration) {
             console.log("Y-Axis is " + lengthYAxis + "pixel");
             console.log("ySteps is " + ySteps + "pixel");
             console.log("xSteps is " + xSteps + "pixel");
-            console.log("Virtual X Zero is at " + virtualXZero)
-            console.log("Virtual Y Zero is at " + virtualYZero)
+            console.log("Virtual X Zero is at " + virtualXZero);
+            console.log("Virtual Y Zero is at " + virtualYZero);
 
+            drawHelperYLines(lengthYAxis, highestValuesInGraph, data, context, virtualXZero, virtualYZero, lengthXAxis, canvas);
 
-            data.charts.forEach(function (chart) {
-                var counter = 0;
-                context.beginPath();
-                context.moveTo(virtualXZero, virtualYZero);
-                chart.values.forEach(function (entry) {
-                    var yPoint = virtualYZero - (entry * ySteps);
-                    var xPoint = virtualXZero + (counter * xSteps);
-                    context.lineTo(xPoint, yPoint);
-                    counter++;
-//                    console.log("Line to X: " + xPoint + " Y:" + yPoint + " Value " + entry);
-                });
-                context.lineCap = "round";
-                context.lineWidth = 2;
-                context.strokeStyle = chart.color;
-                context.stroke();
-
+            var counter = 0;
+            var labelCounter = 0;
+            var yPoint = virtualYZero + 20;
+            data.labels.forEach(function (label) {
+                var xPoint = virtualXZero + (counter * xSteps);
+                if (labelCounter >= data.labelsEvery || labelCounter == 0) {
+                    teamwall.render.writeText(context, label, xPoint, yPoint, teamwall.render.fontFor2ndHeader(canvas), teamwall.configuration.colorText);
+                    labelCounter = 0;
+                }
+                labelCounter++;
+                counter++;
             });
 
+
+            drawDataLines(data, context, virtualXZero, virtualYZero, ySteps, xSteps);
             drawAxis(context, canvas);
-
-            var oneUnitIsPixel = lengthYAxis / highestValuesInGraph;
-            console.log("One Unit is " + oneUnitIsPixel + " Pixel");
-            var yNumber = 0;
-            for (var yValue = ((data.yscale) * oneUnitIsPixel); yValue < lengthYAxis; yValue = yValue + ((data.yscale) * oneUnitIsPixel)) {
-                console.log("yValue : " + yValue);
-                context.beginPath();
-                context.moveTo(virtualXZero, virtualYZero - yValue);
-                context.lineTo(virtualXZero + lengthXAxis, virtualYZero - yValue);
-                context.lineCap = "round";
-                context.lineWidth = 1;
-                context.setLineDash([4, 20]);
-                context.strokeStyle = "grey";
-                context.stroke();
-
-                yNumber = yNumber + data.yscale;
-                teamwall.render.writeText(context, yNumber, virtualXZero - 20, virtualYZero - yValue, teamwall.render.fontFor2ndHeader(canvas), teamwall.configuration.colorText);
-
-
-            }
-            context.setLineDash([0]);
-
-//                var yValue = virtualYZero - data.yscale;
-
 
         }
 
