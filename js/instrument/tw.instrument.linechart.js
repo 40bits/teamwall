@@ -68,8 +68,8 @@ teamwall.instrument.lineChart = function (configuration) {
 
             var lengthYAxis = canvas.height - 10 - fontYAxisHeight;
             var lengthXAxis = canvas.width - 10 - fontXAxisHeight;
-            var ySteps = Math.floor(lengthYAxis / highestValuesInGraph);
-            var xSteps = Math.floor(lengthXAxis / data.labels.length);
+            var ySteps = lengthYAxis / highestValuesInGraph;
+            var xSteps = lengthXAxis / data.labels.length;
             var virtualYZero = canvas.height - fontYAxisHeight;
             var virtualXZero = fontYAxisHeight;
 
@@ -92,7 +92,7 @@ teamwall.instrument.lineChart = function (configuration) {
                     var xPoint = virtualXZero + (counter * xSteps);
                     context.lineTo(xPoint, yPoint);
                     counter++;
-                    console.log("Line to X: " + xPoint + " Y:" + yPoint + " Value " + entry);
+//                    console.log("Line to X: " + xPoint + " Y:" + yPoint + " Value " + entry);
                 });
                 context.lineCap = "round";
                 context.lineWidth = 2;
