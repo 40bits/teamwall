@@ -13,6 +13,7 @@ var teamwall = {
         percent: {},
         textArea: {},
         issueCount: {},
-        gauge: {}
+        gauge: {},
+        lineChart: {}
     }
 };

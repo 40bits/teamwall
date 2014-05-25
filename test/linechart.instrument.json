@@ -1,0 +1,18 @@
+{
+    "layouts": [
+        {
+            "id": "linechart",
+            "top": 8,
+            "left": 8,
+            "width": 800,
+            "height": 300
+        }
+    ], "instruments": [
+    {
+        "id": "linechart",
+        "instrument": "linechart",
+        "title": "Test Linechart Instrument",
+        "url": "data/linechart.json"
+    }
+]
+}

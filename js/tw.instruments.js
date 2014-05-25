@@ -57,6 +57,9 @@ teamwall.instruments.createInstruments = function (instrumentConfigurations) {
             case "gauge" :
                 instrument = teamwall.instrument.gauge(instrumentConfiguration);
                 break;
+            case "linechart" :
+                instrument = teamwall.instrument.lineChart(instrumentConfiguration);
+                break;
             default:
                 break;
         }
