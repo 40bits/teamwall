@@ -13,6 +13,13 @@
             "left": 316,
             "width": 300,
             "height": 300
+        },
+        {
+            "id": "linechart",
+            "top": 316,
+            "left": 8,
+            "width": 800,
+            "height": 300
         }
     ], "instruments": [
     {
@@ -35,6 +42,12 @@
         "show_trend": true,
         "show_age": true,
         "threshold_value": 5
+    },
+    {
+        "id": "linechart",
+        "instrument": "linechart",
+        "title": "Test Linechart Instrument",
+        "url": "data/linechart.json"
     }
 ]
 }
