@@ -60,6 +60,9 @@ teamwall.instruments.createInstruments = function (instrumentConfigurations) {
             case "linechart" :
                 instrument = teamwall.instrument.lineChart(instrumentConfiguration);
                 break;
+	    case "imagearea" :
+                instrument = teamwall.instrument.imageArea(instrumentConfiguration);
+                break;
             default:
                 break;
         }
