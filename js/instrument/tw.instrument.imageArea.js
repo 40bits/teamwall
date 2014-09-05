@@ -18,7 +18,7 @@ teamwall.instrument.imageArea = function (configuration) {
 
         function drawInstrument(data) {
                var imgElement = document.getElementById(instrumentConfiguration.id);
-               imgElement.src = instrumentConfiguration.image_url;
+               imgElement.src = instrumentConfiguration.image_url + "?" + new Date().getTime();;
         }
 
     }
