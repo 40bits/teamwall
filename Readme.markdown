@@ -425,9 +425,32 @@ Example:
 
 ![IssueCount](https://raw.github.com/40bits/teamwall/master/documentation/images/issuecount.png "Issue Count")
 
+### ImageArea ###
+
+**Instrument name :** imagearea
+
+This instrument will show the image given with the image_url attribute. It will be filled into the area defined in the layout section. All images the browser \<img\> tag will support can be displayed. 
+
+Teamwall will update the image if the linked to image should change (e.g. overwrite image file).
+
+Example (teamwall.json):
+
+	{
+	 "instrument": "imagearea",
+	 "id": "someimage",
+	 "url":"data/empty.json",
+	 "image_url":"data/someImageToDisplay.png"
+	}
+
+Example (empty.json):
+
+	{}
+
+![ImageArea](https://raw.github.com/40bits/teamwall/master/documentation/images/imagearea.png "Image Area")
+
 # Layout #
 
-The layout is defined the the `layouts` section of the configuration file.
+The layout is defined the `layouts` section of the configuration file.
 
 The id must match to one of the instruments defined in the `instrument` section. According to that the instrument will have an `width` and `height` and is positioned at `top` and `left`.
 
@@ -451,7 +474,6 @@ Example :
             "height": 300
         },
       ]
-       
 	
 # TODO #
 
