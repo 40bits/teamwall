@@ -21,6 +21,7 @@
     "url": "https://github.com/40bits/teamwall/issues"
   },
   "dependencies": {
-    "connect": "latest"
+    "connect": "latest",
+    "serve-static": "latest"
   }
 }
