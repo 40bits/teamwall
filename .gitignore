@@ -1,6 +1,9 @@
 *.iml
 .idea/
-data
-teamwall.json
 node_modules
 .DS_Store
+
+# demo data copied in root path should be ignored
+/data
+/sounds
+teamwall.json
