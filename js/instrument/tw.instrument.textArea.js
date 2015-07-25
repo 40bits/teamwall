@@ -1,3 +1,10 @@
+/*
+ {
+    "fontSize": 12,
+    "color": "#eeeeee",
+    "text_align" : "center"
+ }
+ */
 teamwall.instrument.textArea = function (configuration) {
 
     function TextAreaInstrument(configuration) {
@@ -35,7 +42,8 @@ teamwall.instrument.textArea = function (configuration) {
             });
             if (instrumentConfiguration.color) {
                 $(divElement).css({
-                    'color': instrumentConfiguration.color
+                    'color': instrumentConfiguration.color,
+                    'text-align': instrumentConfiguration.text_align
                 });
             }
             if (instrumentConfiguration.backgroundColor) {

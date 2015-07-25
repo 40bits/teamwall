@@ -1,6 +1,13 @@
 {
   "layouts": [
     {
+      "id": "title",
+      "top": 10,
+      "left": 10,
+      "width": 1110,
+      "height": 100
+    },
+    {
       "id": "greenbuildpercentage",
       "top": 120,
       "left": 10,
@@ -51,6 +58,15 @@
     }
   ],
   "instruments": [
+    {
+      "id": "title",
+      "title": "Title area",
+      "instrument": "textarea",
+      "url": "data/textArea.json",
+      "fontSize": 40,
+      "color": "#eeeeee",
+      "text_align" : "center"
+    },
     {
       "id": "codecoverage",
       "instrument": "percent",
