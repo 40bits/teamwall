@@ -11,6 +11,7 @@ body {
     -moz-box-shadow: 0 0 2px 2px #363535;
     -webkit-box-shadow: 0 0 2px 2px #363535;
     box-shadow: 0 0 2px 2px #363535;
+    cursor: move;
 }
 
 #configbutton {
@@ -29,6 +30,7 @@ body {
     z-index: 100;
     background-color: #ff4500;
     position: relative;
+    cursor: pointer;
 }
 
 .configUiElement img {
