@@ -367,10 +367,11 @@ Example:
 
 This instrument will simply show the text given to it. It tries to fill the maximum space and auto computes the best font size so everything fits into the instrument space.
 
-| Attribute | Definition |
-|-----------|------------|
-| fontSize	|Size of the font |
-| color     | Color of the text (optional) |
+| Attribute  | Definition |
+|------------|------------|
+| fontSize	 | Size of the font |
+| color      | Color of the text (optional) |
+| text_align | e.g. center, left or right |
 | backgroundColor | Color of the background (optional) |
 
 #### Data Format ####

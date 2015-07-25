@@ -2,7 +2,8 @@
  {
     "fontSize": 12,
     "color": "#eeeeee",
-    "text_align" : "center"
+    "text_align" : "center",
+    "backgroundColor" : "#000000"
  }
  */
 teamwall.instrument.textArea = function (configuration) {
