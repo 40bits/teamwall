@@ -19,7 +19,7 @@ teamwall.instrument.textArea = function (configuration) {
 
         this.getInstrumentDrawType = function () {
             return "div";
-        }
+        };
 
         function drawInstrument(data) {
             var divElement = document.getElementById(instrumentConfiguration.id),

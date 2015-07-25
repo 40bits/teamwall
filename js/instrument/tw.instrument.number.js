@@ -41,7 +41,7 @@ teamwall.instrument.number = function (configuration) {
 
         this.getInstrumentDrawType = function () {
             return "canvas";
-        }
+        };
 
         this.getConfiguration = function () {
             return instrumentConfiguration;

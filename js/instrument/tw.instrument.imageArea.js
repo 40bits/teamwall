@@ -14,7 +14,7 @@ teamwall.instrument.imageArea = function (configuration) {
 
         this.getInstrumentDrawType = function () {
             return "img";
-        }
+        };
 
         function drawInstrument(data) {
 		

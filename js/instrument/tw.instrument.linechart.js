@@ -17,7 +17,7 @@ teamwall.instrument.lineChart = function (configuration) {
 
         this.getInstrumentDrawType = function () {
             return "canvas";
-        }
+        };
 
 
         function drawAxis(context, canvas) {
@@ -91,7 +91,7 @@ teamwall.instrument.lineChart = function (configuration) {
             context.fillStyle = teamwall.configuration.instrumentBackground;
             context.fillRect(0, 0, canvas.width, canvas.height);
             teamwall.render.writeText(context, instrumentConfiguration.title, centerX, teamwall.render.yPointForDrawingHeading(canvas), teamwall.render.fontForHeader(canvas), teamwall.configuration.colorText);
-            console.log("Number of values: " + data.labels.length)
+            console.log("Number of values: " + data.labels.length);
 
             data.charts.forEach(function (chart) {
                 chart.values.forEach(function (entry) {

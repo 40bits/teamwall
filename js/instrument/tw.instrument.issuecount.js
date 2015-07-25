@@ -15,7 +15,7 @@ teamwall.instrument.issueCount = function (configuration) {
 
         this.getInstrumentDrawType = function () {
             return "canvas";
-        }
+        };
 
         function drawInstrument(value) {
             var canvas = document.getElementById(instrumentConfiguration.id);
@@ -29,7 +29,7 @@ teamwall.instrument.issueCount = function (configuration) {
             context.fillRect(0, 0, canvas.width, canvas.height);
 
             var headerHeight = 0;
-            var contentHeight = canvas.height
+            var contentHeight = canvas.height;
             if (instrumentConfiguration.title) {
                 headerHeight = canvas.height * 0.1;
                 contentHeight = canvas.height * 0.9;

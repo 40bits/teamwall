@@ -12,4 +12,4 @@ teamwall.math.round = function (value, decimalPlace) {
     }
     k += e.toString().substring(1);
     return k.substring(0, k.indexOf('.') + decimalPlace + 1);
-}
+};

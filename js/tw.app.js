@@ -49,7 +49,7 @@ teamwall.app.addInstrument = function addInstrument(id) {
     addToCanvasArray(id);
     addToInstrumentArray(id);
 
-}
+};
 
 teamwall.app.getConfiguration = function getConfiguration() {
     var layouts = [];

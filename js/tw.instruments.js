@@ -27,7 +27,7 @@ teamwall.instruments.createInstrumentCanvases = function (instruments, layoutCon
         }
     }
     return canvases;
-}
+};
 
 teamwall.instruments.createInstruments = function (instrumentConfigurations) {
     var instruments = [];
@@ -60,7 +60,7 @@ teamwall.instruments.createInstruments = function (instrumentConfigurations) {
             case "linechart" :
                 instrument = teamwall.instrument.lineChart(instrumentConfiguration);
                 break;
-	    case "imagearea" :
+            case "imagearea" :
                 instrument = teamwall.instrument.imageArea(instrumentConfiguration);
                 break;
             default:
@@ -71,7 +71,7 @@ teamwall.instruments.createInstruments = function (instrumentConfigurations) {
         }
     });
     return instruments;
-}
+};
 
 teamwall.instruments.updateInstruments = function () {
     jQuery.each(teamwall.app.instruments, function () {
@@ -87,4 +87,4 @@ teamwall.instruments.updateInstruments = function () {
             instrument.setValue(data);
         }
     });
-}
+};
