@@ -29,7 +29,7 @@
       "height": 300
     },
     {
-      "id": "codecoverage",
+      "id": "face-grin",
       "top": 430,
       "left": 630,
       "width": 300,
@@ -68,13 +68,10 @@
       "text_align" : "center"
     },
     {
-      "id": "codecoverage",
-      "instrument": "percent",
-      "title": "Code Coverage",
-      "url": "data/codecoverage.json",
-      "threshold_value": "80",
-      "higher_is_better": true,
-      "show_trend": true
+      "id": "face-grin",
+      "instrument": "imagearea",
+      "title": "Face Grin",
+      "url": "data/face-grin.json"
     },
     {
       "id": "greenbuildpercentage",

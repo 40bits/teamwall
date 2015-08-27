@@ -6,4 +6,5 @@ node_modules
 # demo data copied in root path should be ignored
 /data
 /sounds
+/images
 /teamwall.json
