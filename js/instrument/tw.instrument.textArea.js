@@ -1,3 +1,11 @@
+/*
+ {
+    "fontSize": 12,
+    "color": "#eeeeee",
+    "text_align" : "center",
+    "backgroundColor" : "#000000"
+ }
+ */
 teamwall.instrument.textArea = function (configuration) {
 
     function TextAreaInstrument(configuration) {
@@ -19,7 +27,7 @@ teamwall.instrument.textArea = function (configuration) {
 
         this.getInstrumentDrawType = function () {
             return "div";
-        }
+        };
 
         function drawInstrument(data) {
             var divElement = document.getElementById(instrumentConfiguration.id),
@@ -35,7 +43,8 @@ teamwall.instrument.textArea = function (configuration) {
             });
             if (instrumentConfiguration.color) {
                 $(divElement).css({
-                    'color': instrumentConfiguration.color
+                    'color': instrumentConfiguration.color,
+                    'text-align': instrumentConfiguration.text_align
                 });
             }
             if (instrumentConfiguration.backgroundColor) {

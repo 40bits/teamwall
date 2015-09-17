@@ -1,129 +1,131 @@
-{"layouts": [
+{
+  "layouts": [
     {
-        "id": "greenbuildpercentage",
-        "top": 118,
-        "left": 8,
-        "width": 300,
-        "height": 300
+      "id": "title",
+      "top": 10,
+      "left": 10,
+      "width": 1110,
+      "height": 100
     },
     {
-        "id": "buildchain",
-        "top": 428,
-        "left": 8,
-        "width": 300,
-        "height": 300
+      "id": "greenbuildpercentage",
+      "top": 120,
+      "left": 10,
+      "width": 300,
+      "height": 300
     },
     {
-        "id": "violations",
-        "top": 118,
-        "left": 318,
-        "width": 300,
-        "height": 300
+      "id": "buildchain",
+      "top": 430,
+      "left": 10,
+      "width": 300,
+      "height": 300
     },
     {
-        "id": "stargazers",
-        "top": 428,
-        "left": 628,
-        "width": 300,
-        "height": 300
+      "id": "violations",
+      "top": 120,
+      "left": 320,
+      "width": 300,
+      "height": 300
     },
     {
-        "id": "xs",
-        "top": 428,
-        "left": 318,
-        "width": 300,
-        "height": 300
+      "id": "face-grin",
+      "top": 430,
+      "left": 630,
+      "width": 300,
+      "height": 300
     },
     {
-        "id": "integrationbuild",
-        "top": 8,
-        "left": 8,
-        "width": 800,
-        "height": 100
+      "id": "xs",
+      "top": 430,
+      "left": 320,
+      "width": 300,
+      "height": 300
     },
     {
-        "id": "buildalert",
-        "top": 118,
-        "left": 628,
-        "width": 300,
-        "height": 300
+      "id": "buildalert",
+      "top": 120,
+      "left": 630,
+      "width": 300,
+      "height": 300
     },
     {
-        "id": "issuecount",
-        "top": 428,
-        "left": 628,
-        "width": 150,
-        "height": 300
+      "id": "issuecount",
+      "top": 120,
+      "left": 940,
+      "width": 180,
+      "height": 610
     }
-], "instruments": [
+  ],
+  "instruments": [
     {
-        "id": "codecoverage",
-        "instrument": "percent",
-        "title": "Code Coverage",
-        "url": "data/codecoverage.json",
-        "threshold_value": "80",
-        "higher_is_better": true,
-        "show_trend": true
+      "id": "title",
+      "title": "Title area",
+      "instrument": "textarea",
+      "url": "data/textArea.json",
+      "fontSize": 40,
+      "color": "#eeeeee",
+      "text_align" : "center"
     },
     {
-        "id": "greenbuildpercentage",
-        "instrument": "percent",
-        "title": "Green Build",
-        "url": "data/greenbuildpercentage.json",
-        "threshold_value": "90",
-        "higher_is_better": true,
-        "show_trend": false
+      "id": "face-grin",
+      "instrument": "imagearea",
+      "title": "Face Grin",
+      "url": "data/face-grin.json"
     },
     {
-        "id": "buildchain",
-        "title": "Webshop Buildchain",
-        "instrument": "buildchain",
-        "url": "data/buildchain.json"
+      "id": "greenbuildpercentage",
+      "instrument": "percent",
+      "title": "Green Build",
+      "url": "data/greenbuildpercentage.json",
+      "threshold_value": "90",
+      "higher_is_better": true,
+      "show_trend": false
     },
     {
-        "id": "violations",
-        "instrument": "number",
-        "title": "Code Violations",
-        "url": "data/codeviolations.json",
-        "threshold_value": "5",
-        "decimal_places": "0",
-        "higher_is_better": false,
-        "unit": "#",
-        "show_trend": true
+      "id": "buildchain",
+      "title": "Webshop Buildchain",
+      "instrument": "buildchain",
+      "url": "data/buildchain.json"
     },
     {
-        "id": "xs",
-        "instrument": "percent",
-        "title": "Structural Complexity",
-        "url": "data/xs.json",
-        "threshold_value": 4,
-        "higher_is_better": false,
-        "show_trend": true
+      "id": "violations",
+      "instrument": "number",
+      "title": "Code Violations",
+      "url": "data/codeviolations.json",
+      "threshold_value": "5",
+      "decimal_places": "0",
+      "higher_is_better": false,
+      "unit": "#",
+      "show_trend": true
     },
     {
-        "id": "integrationbuild",
-        "instrument": "textarea",
-        "url": "data/integrationbuild.json",
-        "fontSize": "4em",
-        "color": "white"
+      "id": "xs",
+      "instrument": "percent",
+      "title": "Structural Complexity",
+      "url": "data/xs.json",
+      "threshold_value": 4,
+      "higher_is_better": false,
+      "show_trend": true
     },
     {
-        "title": "Broken Builds",
-        "showCount": true,
-        "instrument": "buildalert",
-        "id": "buildalert",
-        "sounds": {
-            "failureSound": "/sounds/tos-redalert.mp3",
-            "failureInterval": "1800",
-            "successSound": "/sounds/smb3_power-up.wav"
-        },
-        "url": "data/buildalert.json"
+      "title": "Broken Builds",
+      "showCount": true,
+      "instrument": "buildalert",
+      "id": "buildalert",
+      "sounds": {
+        "failureSound": "/sounds/tos-redalert.mp3",
+        "failureInterval": "1800",
+        "successSound": "/sounds/smb3_power-up.wav"
+      },
+      "url": "data/buildalert.json"
     },
     {
-        "id": "issuecount",
-        "instrument": "issuecount",
-        "title": "Issues",
-        "priorityColors" : [ "#ff0000", "#FF5A36", "#FF7F00", "#FFA812" ],
-        "url": "data/issuecount.json"
+      "id": "issuecount",
+      "instrument": "issuecount",
+      "title": "Issues",
+      "priorityColors": [ "#ff0000", "#FF5A36", "#FF7F00", "#FFA812" ],
+      "url": "data/issuecount.json"
     }
-]}
+  ]
+}

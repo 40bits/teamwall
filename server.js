@@ -8,6 +8,7 @@
         return;
     }
     var connect = require('connect');
+    var serveStatic = require('serve-static');
     var http = require('http');
     var PORT = 8888;
 
@@ -16,7 +17,7 @@
             res.setHeader("Access-Control-Allow-Origin", "*");
             return next();
         })
-        .use(connect.static(__dirname));
+        .use(serveStatic(__dirname, {'index': ['index.html']}));
 
     var server = http.createServer(app);
     server.listen(PORT, function () {

@@ -14,20 +14,11 @@ teamwall.instrument.imageArea = function (configuration) {
 
         this.getInstrumentDrawType = function () {
             return "img";
-        }
+        };
 
         function drawInstrument(data) {
-		
-	    var request = {
-                'url': instrumentConfiguration.image_url,
-                'success': function(data, textStatus, jqXHR) {
-                   var eTag = jqXHR.getResponseHeader('ETag');
-	           var imgElement = document.getElementById(instrumentConfiguration.id);
-		   imgElement.src = instrumentConfiguration.image_url + "?" + encodeURIComponent(eTag);
-	        }
-	    };
-
-	    $.ajax(request);
+            var imgElement = document.getElementById(instrumentConfiguration.id);
+            imgElement.src = data.image_url + "?" + Date.now();
         }
 
     }

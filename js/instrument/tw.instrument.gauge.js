@@ -28,7 +28,7 @@ teamwall.instrument.gauge = function (configuration) {
         // required
         this.getInstrumentDrawType = function () {
             return "canvas";
-        }
+        };
 
         function drawInstrument(data) {
             var canvas = document.getElementById(instrumentConfiguration.id);

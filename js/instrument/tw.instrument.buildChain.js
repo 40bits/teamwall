@@ -22,7 +22,7 @@ teamwall.instrument.buildChain = function (configuration) {
 
         this.getInstrumentDrawType = function () {
             return "canvas";
-        }
+        };
 
         function drawInstrument(value) {
 

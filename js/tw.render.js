@@ -5,10 +5,10 @@ teamwall.render.fontForHeader = function (canvas) {
     return font;
 };
 
-teamwall.render.fontSizeForHeader = function(canvas) {
+teamwall.render.fontSizeForHeader = function (canvas) {
     var tenPercentHeight = canvas.height / 10;
     return tenPercentHeight / 2;
-}
+};
 
 teamwall.render.fontFor2ndHeader = function (canvas) {
     var tenPercentHeight = canvas.height / 10;
