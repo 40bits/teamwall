@@ -37,6 +37,8 @@ Drop me a line on [twitter](https://twitter.com/owehrens).
 Put everything in a directory served by a web server. You can also run
 `npm update` and `node server.js` which will start a server on port 8888. Find below a list of instruments which can be used to visualize critical
 information.
+`PORT` can be used to overwrite the default port `8888`.
+`DATA` can be used to overwrite the default location for the `teamwall.json` and its content. The `content` will be mapped to `/` (ROOT).
 
 What `you` need to do is to create a `teamwall.json` file and put it into the root directory of teamwall. This file contains
 the description of the instruments to be shown (and how they are updated). Every 15 seconds the values are updated.
